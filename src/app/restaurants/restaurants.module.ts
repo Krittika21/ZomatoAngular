@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AllRestaurantsComponent } from './all-restaurants/all-restaurants.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -9,7 +10,8 @@ import { AllRestaurantsComponent } from './all-restaurants/all-restaurants.compo
     AllRestaurantsComponent,
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ]
 })
 export class RestaurantsModule { }
