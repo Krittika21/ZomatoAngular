@@ -2,3 +2,9 @@
 {
     width: 18rem;
 }
+.jumbotron
+{
+    background: rgb(28, 121, 121);
+    text-decoration-color :white;
+    text-align: center;
+}
