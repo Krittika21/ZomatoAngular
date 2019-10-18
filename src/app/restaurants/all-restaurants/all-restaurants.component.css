@@ -1,10 +1,10 @@
 .card
 {
     width: 18rem;
+    margin-right: 120px;
 }
 .jumbotron
 {
     background: rgb(28, 121, 121);
-    text-decoration-color :white;
     text-align: center;
 }
