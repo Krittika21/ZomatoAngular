@@ -1,7 +1,7 @@
 import { AllCity } from './AllCity.model';
 import { AllCountry } from './AllCountry.model';
 
-export class Location {
+export class AllLocation {
     ID:number;
     Locality: string;
     RestaurantName: string;

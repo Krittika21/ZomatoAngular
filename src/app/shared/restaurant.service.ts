@@ -12,7 +12,11 @@ URL: string = "https://localhost:44335/api";
 
   getAllRestaurants()//:Observable<Restaurant[]>
   {
-    debugger;
     return this._http.get(this.URL + '/Restaurant/allrestaurants');
+  }
+
+  getRestaurantLocation()
+  {
+    return this._http.get(this.URL + '/Restaurant/restaurantlocations');
   }
 }

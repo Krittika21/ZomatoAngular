@@ -3,11 +3,18 @@ import { Routes, RouterModule } from '@angular/router';
 import { AllRestaurantsComponent } from './restaurants/all-restaurants/all-restaurants.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { MenuComponent } from './restaurants/menu/menu.component';
+import { DetailsComponent } from './restaurants/details/details.component';
+import { CartComponent } from './restaurants/cart/cart.component';
 
 
 const routes: Routes = [
-  
-  { path: '', component: AllRestaurantsComponent}
+
+  { path: 'all-restaurants' , component:AllRestaurantsComponent},
+  { path: 'menu', component:MenuComponent},
+  { path: 'details', component:DetailsComponent},
+  { path: 'cart', component:CartComponent},
+  { path: '', component:AllRestaurantsComponent}
 ];
 
 @NgModule({

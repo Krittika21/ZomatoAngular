@@ -27,12 +27,10 @@ export class AllRestaurantsComponent implements OnInit {
   ngOnInit() {
     this.RestaurantService.getAllRestaurants().subscribe(
       (result: Array<AllRestaurants>) => {
-        debugger;
         this.restaurant = result;
         console.log(result);
       },
       err => {
-        debugger;
         console.log(err);
       }
     );
