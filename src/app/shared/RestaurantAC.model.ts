@@ -1,4 +1,4 @@
-export class Restaurant {
+export class RestaurantAC {
     DishesName: string[];
     RestaurantName:string;
     LocationID:number[];

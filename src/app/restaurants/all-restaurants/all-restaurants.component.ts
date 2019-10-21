@@ -18,11 +18,11 @@ export class AllRestaurantsComponent implements OnInit {
   constructor (private RestaurantService: RestaurantService, 
     private _router : Router) { }
     
-  forDetails(): void {
-    this._router.navigate(["/details"])
+  forDetails(RestaurantId: number): void {
+    this._router.navigate(["/details/"+ RestaurantId])
   }
-  forMenu(): void {
-    this._router.navigate(["/menu"])
+  forMenu(RestaurantId: number): void {
+    this._router.navigate(["/menu/" + RestaurantId])
   }
   ngOnInit() {
     this.RestaurantService.getAllRestaurants().subscribe(

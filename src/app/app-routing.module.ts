@@ -11,8 +11,9 @@ import { CartComponent } from './restaurants/cart/cart.component';
 const routes: Routes = [
 
   { path: 'all-restaurants' , component:AllRestaurantsComponent},
-  { path: 'menu', component:MenuComponent},
-  { path: 'details', component:DetailsComponent},
+  { path: 'menu/:id', component:MenuComponent},
+  //{ path: 'details', component:DetailsComponent},
+  { path: 'details/:id', component:DetailsComponent},
   { path: 'cart', component:CartComponent},
   { path: '', component:AllRestaurantsComponent}
 ];

@@ -5,6 +5,6 @@ export class AllLocation {
     ID:number;
     Locality: string;
     RestaurantName: string;
-    CityName: AllCity;  
-    CountryName: AllCountry;       
+    City: AllCity;  
+    Country: AllCountry;       
 }

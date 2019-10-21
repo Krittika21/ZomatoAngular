@@ -1,9 +1,12 @@
-<div *ngFor = "let names of restaurant" >
+<div *ngFor = "let names of location" >
 <div class="container">
     <div class="jumbotron bg-secondary text-white">
         <h1>{{names.RestaurantName}}</h1>
-        <p>Location</p>
-        <p>Rating</p>     
+        <hr/>
+        <p>LOCATION : {{names.Locality}}, {{names.City.Name}}, {{names.Country.Name}}</p>
+        <hr/>
+        <p>Rating</p>
+        <hr/>     
     </div>
     <div>
         <p>Contact Numbers</p>

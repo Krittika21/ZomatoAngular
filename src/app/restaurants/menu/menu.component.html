@@ -1,10 +1,11 @@
-<p>menu works!</p>
-<div class="container">
+<div *ngFor = "let names of dishes" >
+    <div class="container">
     <div class="jumbotron">
-            <img class="img-fluid" src="img_chania.jpg" alt="Chania">     
+            <!-- <img class="img-fluid" src="img_chania.jpg" alt="Chania">      -->
     </div>
-    <h2>Restaurant Name</h2>
+    <h2>{{names.RestaurantName}}</h2>
     <p>all dishes with check boxes</p>    
+</div>
 </div>
 <div>
     <button>View Cart</button>
