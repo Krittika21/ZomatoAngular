@@ -1,12 +1,32 @@
-<div *ngFor = "let names of dishes" >
+
     <div class="container">
     <div class="jumbotron">
             <!-- <img class="img-fluid" src="img_chania.jpg" alt="Chania">      -->
     </div>
-    <h2>{{names.RestaurantName}}</h2>
-    <p>all dishes with check boxes</p>    
+    <h1>{{currentRestaurant.RestaurantName}}</h1>
+    <div class="container">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Dishes</th>
+              <th>Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let dish of dishes">
+              <td>
+                <div>
+                    <input #myBox type="checkbox" name="chk" id="chk" (change)="onCheck(myBox.checked, dish.ID)">
+                    <label  for="chk">{{dish.DishesName}}</label>
+                </div> 
+              </td>
+              <td>price</td>
+            </tr>
+          </tbody>
+        </table>
+      </div> 
 </div>
-</div>
+
 <div>
-    <button>View Cart</button>
+    <button (click)= "forCart(RestaurantId)">View Cart</button>
 </div>

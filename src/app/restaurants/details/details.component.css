@@ -2,3 +2,12 @@ h1
 {
     align-content: center;
 }
+.jumbotron
+{
+    background: #660000;
+}
+.Right
+{
+    position: absolute;
+    margin-left: 70%;
+}

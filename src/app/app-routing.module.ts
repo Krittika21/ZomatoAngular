@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'menu/:id', component:MenuComponent},
   //{ path: 'details', component:DetailsComponent},
   { path: 'details/:id', component:DetailsComponent},
-  { path: 'cart', component:CartComponent},
+  { path: 'cart/:id', component:CartComponent},
   { path: '', component:AllRestaurantsComponent}
 ];
 

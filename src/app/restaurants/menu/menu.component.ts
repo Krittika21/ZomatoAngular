@@ -3,6 +3,7 @@ import { AllDishes } from 'src/app/shared/AllDishes.model';
 import { RestaurantService } from 'src/app/shared/restaurant.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { RestaurantAC } from 'src/app/shared/RestaurantAC.model';
+import { AllRestaurants } from 'src/app/shared/AllRestaurants.model';
 
 @Component({
   selector: 'app-menu',
@@ -10,16 +11,28 @@ import { RestaurantAC } from 'src/app/shared/RestaurantAC.model';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-  dishes: Array<RestaurantAC>;
   RestaurantId: number;
-
+  eatery: AllRestaurants[];
+  dishes: AllDishes[];
+  selectedDishes: AllDishes[];
+  currentRestaurant: AllRestaurants;
   constructor(private RestaurantService: RestaurantService,
-    private _router : Router, private route: ActivatedRoute) { }
+    private _router : Router, private route: ActivatedRoute) {
+      this.selectedDishes=[];
+      this.RestaurantId = +this.route.snapshot.paramMap.get('id');
+      this.eatery = this._router.getCurrentNavigation().extras.state.eatery;
+      this.currentRestaurant = this.eatery.find(k=>k.ID  == this.RestaurantId);
+     }
+
+    forCart(RestaurantId: number): void 
+    {
+       this._router.navigate(["/cart/"+ RestaurantId], {state:{food: this.selectedDishes}})
+    }
 
   ngOnInit() {
-    this.RestaurantId = +this.route.snapshot.paramMap.get('id');
+    
     this.RestaurantService.getDishes(this.RestaurantId).subscribe(
-      (result: Array<RestaurantAC>) => {
+      (result) => {
         this.dishes = result;
         console.log(result);
       },
@@ -28,6 +41,15 @@ export class MenuComponent implements OnInit {
       }
     );
 
+  }
+
+  onCheck(check:boolean, ID: number) {
+    if(check === true) {
+      this.selectedDishes.push(this.dishes.find(k => k.ID == ID));
+    } else {
+      this.selectedDishes = this.selectedDishes.filter(k => k.ID !=ID);
+    }
+    console.log(this.selectedDishes);
   }
 
 }

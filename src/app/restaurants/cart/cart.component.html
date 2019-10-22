@@ -1,6 +1,5 @@
-<p>cart works!</p>
 <div class="container">
-    <div class="jumbotron">
+    <div class="jumbotron text-white">
       <h1>Restaurant Name</h1>      
       <p>Location</p>
     </div>
@@ -11,13 +10,17 @@
                 <th>Dishes</th>
                 <th>Price</th>
                 <th>Quantity</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>Item One</td>
+            <tr *ngFor="let items of selected">
+                <td>{{items.DishesName}}</td>
                 <td>500</td>
                 <td>1</td>
+                <td>
+                    <button>Delete</button>
+                </td>
             </tr>
         </tbody> 
     </table>     

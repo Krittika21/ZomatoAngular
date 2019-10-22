@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { RestaurantAC } from './RestaurantAC.model';
+import { AllDishes } from './AllDishes.model';
 
 @Injectable({
   providedIn: 'root'
@@ -29,8 +30,8 @@ RestaurantId: number;
   {
     return this._http.get(this.URL + '/Restaurant/restaurant/'+ id);
   }
-  getDishes(id: number)
+  getDishes(id: number): Observable<AllDishes[]>
   {
-    return this._http.get(this.URL + '/Restaurant/restaurant/' + id);
+    return this._http.get<AllDishes[]>(this.URL + '/Restaurant/restaurant/dishes/' + id);
   }
 }
