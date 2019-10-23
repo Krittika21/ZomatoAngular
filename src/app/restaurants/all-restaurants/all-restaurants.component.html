@@ -1,4 +1,7 @@
 <div class="container">
+  <div>
+    <button type="button" class="btn btn-info" id="right" (click)="forAdd(restaurant.ID)">Add Restaurant</button>
+  </div>
   <h1 class="jumbotron text-white">FOODIE</h1>
 </div>
 
@@ -6,7 +9,7 @@
 <div class="card" *ngFor = "let names of restaurant" >
   <h5 class="jumbotron">{{names.RestaurantName}}</h5>
     <div class="card-body">
-      <p class="card-text">Some Descriptions.</p>
+      <p class="card-text">{{names.Description}}</p>
       <button class="btn btn-link" (click)= "forDetails(names.ID)">View Details</button>
       <button class="btn btn-link" (click)= "forMenu(names.ID)">Order Online</button>
     </div>

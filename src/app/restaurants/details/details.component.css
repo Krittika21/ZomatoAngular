@@ -11,3 +11,8 @@ h1
     position: absolute;
     margin-left: 70%;
 }
+label
+{
+    font-weight:bold;
+    text-transform: uppercase;
+}

@@ -1,4 +1,5 @@
 export class AllDishes {
     ID:number;
-    DishesName: string;         
+    DishesName: string;    
+    Costs: number;     
 }

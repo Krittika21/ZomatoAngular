@@ -7,14 +7,18 @@ import { RestaurantsModule } from './restaurants/restaurants.module';
 import { AllRestaurantsComponent } from './restaurants/all-restaurants/all-restaurants.component';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
+import { AddRestaurantComponent } from './admin/add-restaurant/add-restaurant.component';
+import { EditRestaurantComponent } from './admin/edit-restaurant/edit-restaurant.component';
+import { AdminModule } from './admin/admin.module';
 
 @NgModule({
-  declarations: [ AppComponent ],
+  declarations: [ AppComponent],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
     RestaurantsModule,
+    AdminModule,
     AppRoutingModule
     
     

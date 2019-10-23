@@ -1,9 +1,12 @@
 
     <div class="container">
-    <div class="jumbotron">
-            <!-- <img class="img-fluid" src="img_chania.jpg" alt="Chania">      -->
+    <div class="jumbotron text-white">
+        <div>
+          <button type="button" class="btn btn-success" id="right" (click)="forEdit()">Edit Restaurant</button>
+        </div>
+        <h1>{{currentRestaurant.RestaurantName}}</h1>
     </div>
-    <h1>{{currentRestaurant.RestaurantName}}</h1>
+
     <div class="container">
         <table class="table table-striped">
           <thead>
@@ -16,8 +19,8 @@
             <tr *ngFor="let dish of dishes">
               <td>
                 <div>
-                    <input #myBox type="checkbox" name="chk" id="chk" (change)="onCheck(myBox.checked, dish.ID)">
-                    <label  for="chk">{{dish.DishesName}}</label>
+                    <input #myBox type="checkbox" name="check" id="check" (change)="onCheck(myBox.checked, dish.ID)">
+                    <label  for="check">{{dish.DishesName}}</label>
                 </div> 
               </td>
               <td>price</td>

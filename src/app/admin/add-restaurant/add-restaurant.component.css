@@ -1,0 +1,16 @@
+.jumbotron
+{
+    background: #d1dce3;
+}
+.wrapper {
+    text-align: center;
+}
+
+.button {
+    bottom: 20%;
+    /* bottom: 5%; */
+}
+.menu
+{
+    font-weight:bold;
+}

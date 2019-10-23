@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RestaurantService } from 'src/app/shared/restaurant.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AllRestaurants } from 'src/app/shared/AllRestaurants.model';
-import { AllLocation } from 'src/app/shared/AllLocations.model';
+import { AllDetails } from 'src/app/shared/AllDetails.model';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { AllCity } from 'src/app/shared/OrderDetails.model';
 import { AllCountry } from 'src/app/shared/AllCountry.model';
@@ -14,7 +14,7 @@ import { AllCountry } from 'src/app/shared/AllCountry.model';
 })
 export class DetailsComponent implements OnInit {
   //restaurant: Array<AllRestaurants>;
-  location: Array<AllLocation>;
+  details: Array<AllDetails>;
   RestaurantId: number;
   constructor(private RestaurantService: RestaurantService, 
     private _router : Router, private route: ActivatedRoute) { }
@@ -22,8 +22,8 @@ export class DetailsComponent implements OnInit {
   ngOnInit() {
     this.RestaurantId = +this.route.snapshot.paramMap.get('id');
     this.RestaurantService.getRestaurantLocation(this.RestaurantId).subscribe(
-    (result: Array<AllLocation>) => {
-      this.location = result;
+    (result: Array<AllDetails>) => {
+      this.details = result;
       console.log(result);
     },
     err => {

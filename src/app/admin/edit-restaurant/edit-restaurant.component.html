@@ -1,0 +1,41 @@
+<div>
+        <div class="container">
+            <div class="jumbotron">
+                <h1>UDPDATE RESTAURANT</h1>   
+            </div>
+            <div>
+                <label>Contact Number</label>
+                <br>
+                <input type="input" name="ContactNumber" [(ngModel)]=ContactNumber class="form-control"/>{{restaurant.ContactNumber}}
+                <br>
+                <label>Cuisine Type</label>
+                <br>
+                <input type="input" name="Cuisines" [(ngModel)]=Cuisines class="form-control"/>{{restaurant.Cuisines}}
+                <br>
+                <label>Average Cost for Two</label>
+                <br>
+                <input type="input" name="Average" [(ngModel)]=Average class="form-control"/>{{restaurant.Average}}
+                <br>
+                <label>Opening Hours</label>
+                <br>
+                <input type="input" name="OpeningHours" [(ngModel)]=OpeningHours class="form-control"/>{{restaurant.OpeningHours}}
+                <div>
+                <hr/>
+                <label>More Info</label>
+                <br>
+                <input type="input" name="Info" [(ngModel)]=Info class="form-control"/>{{restaurant.Info}}
+                </div>
+                <hr/>  
+                <div>
+                    <label class="menu">MENU: </label>
+                    <p>Add Dishes:</p>
+                    <input type="Dishes" name="Dishes" [(ngModel)]=Dishes class="form-control"/>{{restaurant.Dishes}}
+                </div>
+            </div> 
+            <br>
+    <div class="wrapper">
+            <button class="button">UPDATE</button>
+            <hr/>
+    </div>     
+        </div>
+</div>

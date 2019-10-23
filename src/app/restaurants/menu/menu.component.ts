@@ -20,13 +20,25 @@ export class MenuComponent implements OnInit {
     private _router : Router, private route: ActivatedRoute) {
       this.selectedDishes=[];
       this.RestaurantId = +this.route.snapshot.paramMap.get('id');
-      this.eatery = this._router.getCurrentNavigation().extras.state.eatery;
-      this.currentRestaurant = this.eatery.find(k=>k.ID  == this.RestaurantId);
+      this.RestaurantService.getAllRestaurants().subscribe(
+        (result) => {
+          this.eatery = result;
+          console.log(result);
+          this.currentRestaurant = this.eatery.find(k=>k.ID  == this.RestaurantId);
+        },
+        err=> {
+          console.log(err);
+        }
+      );
+      
      }
 
     forCart(RestaurantId: number): void 
     {
        this._router.navigate(["/cart/"+ RestaurantId], {state:{food: this.selectedDishes}})
+    }
+    forEdit(RestaurantId: number): void {
+      this._router.navigate(["/edit-restaurant/"+ RestaurantId])
     }
 
   ngOnInit() {

@@ -1,4 +1,4 @@
-<div *ngFor = "let names of location" >
+<div *ngFor = "let names of details" >
 <div class="container">
     <div class="jumbotron text-white">
         <h1>{{names.RestaurantName}}</h1>
@@ -9,16 +9,18 @@
         </div>    
     </div>
     <div>
-        <p>Contact Numbers</p>
-        <p>Cuisines</p>
-        <p>Average Cost for Two</p>
-        <p>Opening Hours</p>
+        <label>Contact Number</label>
+        <p>{{names.ContactNumber}}</p>
+        <label>Cuisine Type</label>
+        <p>{{names.CuisineType}}</p>
+        <label>Average Cost for Two</label>
+        <p> ₹ {{names.AverageCost}}</p>
+        <label>Opening Hours</label>
+        <p>{{names.OpeningHours}}</p>
         <div>
             <hr/>
-            <h5>More Info</h5>
-            <p>Home</p>
-            <p>Free Wifi</p>
-            <p>Buffet</p>
+            <h5>MORE INFO: </h5>
+            <p>{{names.MoreInfo}}</p>
         </div>
         <hr/>  
         <div>

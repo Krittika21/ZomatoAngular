@@ -2,3 +2,8 @@
 {
     background: #575403;
 }
+#right
+{
+    position: absolute;
+    margin-left: 60%;
+}

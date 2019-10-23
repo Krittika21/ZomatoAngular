@@ -9,3 +9,8 @@
     background: rgb(28, 121, 121);
     text-align: center;
 }
+#right
+{
+    position: absolute;
+    margin-left: 65%;
+}
