@@ -1,6 +1,9 @@
 <div *ngFor = "let names of details" >
 <div class="container">
     <div class="jumbotron text-white">
+        <div>
+            <button type="button" class="btn btn-danger" id="right" (click)="forEdit()">Edit Restaurant</button>
+        </div>
         <h1>{{names.RestaurantName}}</h1>
         <hr/>
         <div class="row">

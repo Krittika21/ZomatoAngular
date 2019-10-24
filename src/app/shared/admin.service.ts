@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AddRestaurantComponent } from '../admin/add-restaurant/add-restaurant.component';
 import { DetailsComponent } from '../restaurants/details/details.component';
 import { HttpClient } from '@angular/common/http';
+import { AllDetails } from './AllDetails.model';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,7 @@ export class AdminService {
     return this.RestaurantId;
   }
 //post
-   postRestaurant(body: DetailsComponent )
+   postRestaurant(body: AllDetails )
    {
     return this._http.post(this.URL + '/Restaurant/allrestaurants', body);
    }

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { RestaurantService } from 'src/app/shared/restaurant.service';
+import { AllDetails } from 'src/app/shared/AllDetails.model';
 
 @Component({
   selector: 'app-edit-restaurant',
@@ -6,10 +9,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./edit-restaurant.component.css']
 })
 export class EditRestaurantComponent implements OnInit {
-
-  constructor() { }
+  RestaurantId: number;
+  restaurants: AllDetails[];
+  restaurant: AllDetails;
+  constructor(private restaurantService: RestaurantService, 
+    private _router : Router, private route: ActivatedRoute) { 
+    this.restaurants = this.route.snapshot.data.resolvedData;
+    this.RestaurantId = +this.route.snapshot.paramMap.get('id');
+    this.restaurant = this.restaurants.find(k => k.ID === this.RestaurantId);
+    console.log(JSON.stringify(this.restaurant));
+  }
 
   ngOnInit() {
+
   }
 
 }

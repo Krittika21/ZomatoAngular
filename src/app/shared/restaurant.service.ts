@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { RestaurantAC } from './RestaurantAC.model';
 import { AllDishes } from './AllDishes.model';
 import { AllRestaurants } from './AllRestaurants.model';
+import { AllDetails } from './AllDetails.model';
 
 @Injectable({
   providedIn: 'root'
@@ -27,9 +28,9 @@ export class RestaurantService {
     return this._http.get<AllRestaurants[]>(this.URL + '/Restaurant/allrestaurants');
   }
 
-  getRestaurantLocation(id:number)
+  getRestaurantLocation(id:number): Observable<AllDetails[]>
   {
-    return this._http.get(this.URL + '/Restaurant/restaurant/'+ id);
+    return this._http.get<AllDetails[]>(this.URL + '/Restaurant/restaurant/'+ id);
   }
   getDishes(id: number): Observable<AllDishes[]>
   {

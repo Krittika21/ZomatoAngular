@@ -25,7 +25,7 @@ export class AllRestaurantsComponent implements OnInit {
     this._router.navigate(["/menu/" + RestaurantId], {state:{eatery: this.restaurant}});
   }
   forAdd(RestaurantId: number): void {
-    this._router.navigate(["/add-restaurant/" + RestaurantId]);
+    this._router.navigate(["/add-restaurant" ]);
   }
   ngOnInit() {
     this.RestaurantService.getAllRestaurants().subscribe(

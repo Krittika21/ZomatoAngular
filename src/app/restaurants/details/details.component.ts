@@ -17,7 +17,13 @@ export class DetailsComponent implements OnInit {
   details: Array<AllDetails>;
   RestaurantId: number;
   constructor(private RestaurantService: RestaurantService, 
-    private _router : Router, private route: ActivatedRoute) { }
+    private _router : Router, private route: ActivatedRoute) { 
+      this.RestaurantId = +this.route.snapshot.paramMap.get('id');
+    }
+
+    forEdit(): void {
+      this._router.navigate(['edit-restaurant', this.RestaurantId]);
+    }
 
   ngOnInit() {
     this.RestaurantId = +this.route.snapshot.paramMap.get('id');

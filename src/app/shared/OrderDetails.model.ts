@@ -1,4 +1,4 @@
-export class AllCity {
+export class OrderDetails {
     RestaurantID:number;
     UserID: number;
     UserName: string;   

@@ -37,9 +37,10 @@ export class MenuComponent implements OnInit {
     {
        this._router.navigate(["/cart/"+ RestaurantId], {state:{food: this.selectedDishes}})
     }
-    forEdit(RestaurantId: number): void {
-      this._router.navigate(["/edit-restaurant/"+ RestaurantId])
+    addDishes(RestaurantId: number): void {
+      this._router.navigate(["/add-dishes/"+ RestaurantId]);
     }
+    
 
   ngOnInit() {
     

@@ -16,3 +16,8 @@ label
     font-weight:bold;
     text-transform: uppercase;
 }
+#right
+{
+    position: absolute;
+    margin-left: 60%;
+}

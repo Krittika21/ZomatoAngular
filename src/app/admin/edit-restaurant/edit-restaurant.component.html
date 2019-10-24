@@ -6,31 +6,26 @@
             <div>
                 <label>Contact Number</label>
                 <br>
-                <input type="input" name="ContactNumber" [(ngModel)]=ContactNumber class="form-control"/>{{restaurant.ContactNumber}}
+                <input type="text" name="ContactNumber" [(ngModel)]="restaurant.ContactNumber" class="form-control" [value]="this.restaurant.ContactNumber"/>
                 <br>
                 <label>Cuisine Type</label>
                 <br>
-                <input type="input" name="Cuisines" [(ngModel)]=Cuisines class="form-control"/>{{restaurant.Cuisines}}
+                <input type="text" name="Cuisines" [(ngModel)]="restaurant.CuisineType" class="form-control" [value]="this.restaurant.CuisineType"/>
                 <br>
                 <label>Average Cost for Two</label>
                 <br>
-                <input type="input" name="Average" [(ngModel)]=Average class="form-control"/>{{restaurant.Average}}
+                <input type="text" name="Average" [(ngModel)]="restaurant.AverageCost" class="form-control" [value]="restaurant.AverageCost"/>
                 <br>
                 <label>Opening Hours</label>
                 <br>
-                <input type="input" name="OpeningHours" [(ngModel)]=OpeningHours class="form-control"/>{{restaurant.OpeningHours}}
+                <input type="text" name="OpeningHours" [(ngModel)]="restaurant.OpeningHours" class="form-control" [value]="restaurant.OpeningHours"/>
                 <div>
                 <hr/>
                 <label>More Info</label>
                 <br>
-                <input type="input" name="Info" [(ngModel)]=Info class="form-control"/>{{restaurant.Info}}
+                <input type="text" name="MoreInfo" [(ngModel)]="restaurant.MoreInfo" class="form-control" [value]="restaurant.MoreInfo"/>
                 </div>
                 <hr/>  
-                <div>
-                    <label class="menu">MENU: </label>
-                    <p>Add Dishes:</p>
-                    <input type="Dishes" name="Dishes" [(ngModel)]=Dishes class="form-control"/>{{restaurant.Dishes}}
-                </div>
             </div> 
             <br>
     <div class="wrapper">

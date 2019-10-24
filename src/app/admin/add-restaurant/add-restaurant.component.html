@@ -4,37 +4,53 @@
             <h1>ADD NEW RESTAURANT</h1>   
         </div>
         <div>
-            <label>Contact Number</label>
-            <br>
-            <input type="input" name="ContactNumber" [(ngModel)]=ContactNumber class="form-control"/>{{restaurant.ContactNumber}}
-            <br>
-            <label>Cuisine Type</label>
-            <br>
-            <input type="input" name="Cuisines" [(ngModel)]=Cuisines class="form-control"/>{{restaurant.Cuisines}}
-            <br>
-            <label>Average Cost for Two</label>
-            <br>
-            <input type="input" name="Average" [(ngModel)]=Average class="form-control"/>{{restaurant.Average}}
-            <br>
-            <label>Opening Hours</label>
-            <br>
-            <input type="input" name="OpeningHours" [(ngModel)]=OpeningHours class="form-control"/>{{restaurant.OpeningHours}}
-            <div>
-            <hr/>
-            <label>More Info</label>
-            <br>
-            <input type="input" name="Info" [(ngModel)]=Info class="form-control"/>{{restaurant.Info}}
+                <label>Restuarant Name</label>
+                <br>
+                <input type="text" name="RestaurantName" [(ngModel)]="restaurant.RestaurantName" class="form-control"/>
+                <br>
+                <label>Contact Number</label>
+                <br>
+                <input type="text" name="ContactNumber" [(ngModel)]="restaurant.ContactNumber" class="form-control"/>
+                <br>
+                <label>Cuisine Type</label>
+                <br>
+                <input type="text" name="Cuisines" [(ngModel)]="restaurant.CuisineType" class="form-control"/>
+                <br>
+                <label>Average Cost for Two</label>
+                <br>
+                <input type="text" name="Average" [(ngModel)]="restaurant.AverageCost" class="form-control"/>
+                <br>
+                <label>Opening Hours</label>
+                <br>
+                <input type="text" name="OpeningHours" [(ngModel)]="restaurant.OpeningHours" class="form-control"/>
+                <div>
+                <hr/>
+                <label>More Info</label>
+                <br>
+                <input type="text" name="MoreInfo" [(ngModel)]="restaurant.MoreInfo" class="form-control"/>
+                <hr/>
+                <div>
+                    <h5>Add Location details</h5>
+                        <br>
+                        <label>Country Name: </label>
+                        <br>
+                        <input type="text" name="Country" [(ngModel)]="countryName" class="form-control"/>
+                        <br>
+                        <label>City Name: </label>
+                        <br>
+                        <input type="text" name="City" [(ngModel)]="cityName" class="form-control"/>
+                        <br>
+                        <label>Locality: </label>
+                        <br>
+                        <input type="text" name="Locality" [(ngModel)]="restaurant.Locality" class="form-control"/>
+                        <br>
+                </div>
             </div>
-            <hr/>  
-            <div>
-                <label class="menu">MENU:</label>
-                <p>Add Dishes:</p>
-                <input type="Dishes" name="Dishes" [(ngModel)]=Dishes class="form-control"/>{{restaurant.Dishes}}
-            </div>
-        </div>
+                <hr/>  
+            </div> 
         <br>
     <div class="wrapper">
-            <button class="button">ADD NEW</button>
+            <button class="button" (click)="onSubmit()">ADD NEW</button>
             <hr/>
     </div>   
     </div>
