@@ -25,4 +25,9 @@ export class AdminService {
    {
     return this._http.post(this.URL + '/Restaurant/allrestaurants', body);
    }
+   //put
+   putRestaurant(id:number, body: AllDetails)
+   {
+     return this._http.put(this.URL + '/Restaurant/editrestaurant/' + id , body);
+   }
 }

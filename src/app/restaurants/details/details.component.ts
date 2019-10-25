@@ -4,7 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { AllRestaurants } from 'src/app/shared/AllRestaurants.model';
 import { AllDetails } from 'src/app/shared/AllDetails.model';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
-import { AllCity } from 'src/app/shared/OrderDetails.model';
+import { AllCity } from 'src/app/shared/AllCity.model';
 import { AllCountry } from 'src/app/shared/AllCountry.model';
 
 @Component({
@@ -19,10 +19,23 @@ export class DetailsComponent implements OnInit {
   constructor(private RestaurantService: RestaurantService, 
     private _router : Router, private route: ActivatedRoute) { 
       this.RestaurantId = +this.route.snapshot.paramMap.get('id');
+    
     }
 
     forEdit(): void {
       this._router.navigate(['edit-restaurant', this.RestaurantId]);
+    }
+    forDelete(): void{
+      this.RestaurantService.removeRestaurant(this.RestaurantId).subscribe(
+        result => {
+          console.log(result);
+          this._router.navigate(["/all-restaurants"]);
+        },
+        err =>
+        {
+          console.log(err);
+        }
+      )
     }
 
   ngOnInit() {

@@ -19,5 +19,10 @@ label
 #right
 {
     position: absolute;
-    margin-left: 60%;
+    margin-left: 64%;
+}
+#rightD
+{
+    position: absolute;
+    margin-left: 52%;
 }

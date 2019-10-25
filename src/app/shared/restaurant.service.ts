@@ -36,4 +36,10 @@ export class RestaurantService {
   {
     return this._http.get<AllDishes[]>(this.URL + '/Restaurant/restaurant/dishes/' + id);
   }
+
+  removeRestaurant(RestaurantId: number):Observable<AllRestaurants>
+  {
+    debugger;
+    return this._http.delete<AllRestaurants>(this.URL + '/Restaurant/restaurant/' + RestaurantId);
+  }
 }

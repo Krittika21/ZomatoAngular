@@ -37,8 +37,8 @@ export class MenuComponent implements OnInit {
     {
        this._router.navigate(["/cart/"+ RestaurantId], {state:{food: this.selectedDishes}})
     }
-    addDishes(RestaurantId: number): void {
-      this._router.navigate(["/add-dishes/"+ RestaurantId]);
+    addDishes(): void {
+      this._router.navigate(["/add-dishes/"+ this.RestaurantId]);
     }
     
 

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { RestaurantService } from 'src/app/shared/restaurant.service';
 import { AllDetails } from 'src/app/shared/AllDetails.model';
+import { AdminService } from 'src/app/shared/admin.service';
 
 @Component({
   selector: 'app-edit-restaurant',
@@ -12,7 +13,7 @@ export class EditRestaurantComponent implements OnInit {
   RestaurantId: number;
   restaurants: AllDetails[];
   restaurant: AllDetails;
-  constructor(private restaurantService: RestaurantService, 
+  constructor(private adminService: AdminService, 
     private _router : Router, private route: ActivatedRoute) { 
     this.restaurants = this.route.snapshot.data.resolvedData;
     this.RestaurantId = +this.route.snapshot.paramMap.get('id');
@@ -21,7 +22,18 @@ export class EditRestaurantComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
 
+  onSubmit(){
+    this.adminService.putRestaurant(this.RestaurantId,this.restaurant).subscribe(
+      result => {
+        console.log(result);
+        this._router.navigate(["/details/"+ this.RestaurantId]);
+      },
+      err => {
+        console.log(err);
+      }
+    );
   }
 
 }

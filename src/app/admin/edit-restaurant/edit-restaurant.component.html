@@ -27,9 +27,25 @@
                 </div>
                 <hr/>  
             </div> 
+            <div>
+                <h5>Add Location details</h5>
+                    <br>
+                    <label>Country Name: </label>
+                    <br>
+                    <input type="text" name="Country" [(ngModel)]="restaurant.Country.Name" class="form-control" [value]="restaurant.Country.Name"/>
+                    <br>
+                    <label>City Name: </label>
+                    <br>
+                    <input type="text" name="City" [(ngModel)]="restaurant.City.Name" class="form-control" [value]="restaurant.City.Name"/>
+                    <br>
+                    <label>Locality: </label>
+                    <br>
+                    <input type="text" name="Locality" [(ngModel)]="restaurant.Locality" class="form-control" [value]="restaurant.Locality"/>
+                    <br>
+            </div>
             <br>
     <div class="wrapper">
-            <button class="button">UPDATE</button>
+            <button class="button" (click)="onSubmit()">UPDATE</button>
             <hr/>
     </div>     
         </div>
