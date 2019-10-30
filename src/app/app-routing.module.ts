@@ -10,12 +10,13 @@ import { AddRestaurantComponent } from './admin/add-restaurant/add-restaurant.co
 import { EditRestaurantComponent } from './admin/edit-restaurant/edit-restaurant.component';
 import { EditResolver } from './shared/edit-resolver.service';
 import { AddDishesComponent } from './admin/add-dishes/add-dishes.component';
+import { MenuResolver } from './shared/menu-resolver.service';
 
 
 const routes: Routes = [
 
   { path: 'all-restaurants' , component:AllRestaurantsComponent},
-  { path: 'menu/:id', component:MenuComponent},
+  { path: 'menu/:id', component:MenuComponent, resolve: {resolvedData: MenuResolver}, runGuardsAndResolvers: 'always'},
   { path: 'details/:id', component:DetailsComponent},
   { path: 'cart/:id', component:CartComponent},
   { path: 'add-restaurant', component:AddRestaurantComponent},
@@ -27,7 +28,9 @@ const routes: Routes = [
 @NgModule({
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes, {
+      onSameUrlNavigation: 'reload'
+    }),
     FormsModule
   ],
   exports: [RouterModule]

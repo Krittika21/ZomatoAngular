@@ -1,19 +1,22 @@
 <p>add-dishes works!</p>
-<div *ngFor = "let names of details" >
+
+  
     <div class="container">
         <div class="jumbotron text-white">
-            <h1>{{names.RestaurantName}}</h1>
+            <!-- <h1>{{restaurant.RestaurantName}}</h1> -->
             <hr/>   
         </div>
         <div>
             <label>Dishes Name</label>
-            <p>{{names.ContactNumber}}</p>
+            <input type="text" name="DishesName" [(ngModel)]="dish.DishesName" class="form-control"/>
+            <br>
             <label>Price</label>
-            <p>{{names.CuisineType}}</p>
+            <input type="text" name="Costs" [(ngModel)]="dish.Costs" class="form-control"/>
+            <br>
         </div> 
         <div class="wrapper">
             <button class="button" (click)="onSubmit()">ADD NEW</button>
             <hr/>
         </div>     
     </div>
-</div>
+

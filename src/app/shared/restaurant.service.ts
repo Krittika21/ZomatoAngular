@@ -39,7 +39,6 @@ export class RestaurantService {
 
   removeRestaurant(RestaurantId: number):Observable<AllRestaurants>
   {
-    debugger;
     return this._http.delete<AllRestaurants>(this.URL + '/Restaurant/restaurant/' + RestaurantId);
   }
 }

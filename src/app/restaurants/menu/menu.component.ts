@@ -4,6 +4,7 @@ import { RestaurantService } from 'src/app/shared/restaurant.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { RestaurantAC } from 'src/app/shared/RestaurantAC.model';
 import { AllRestaurants } from 'src/app/shared/AllRestaurants.model';
+import { AdminService } from 'src/app/shared/admin.service';
 
 @Component({
   selector: 'app-menu',
@@ -16,22 +17,13 @@ export class MenuComponent implements OnInit {
   dishes: AllDishes[];
   selectedDishes: AllDishes[];
   currentRestaurant: AllRestaurants;
-  constructor(private RestaurantService: RestaurantService,
+  constructor(private RestaurantService: RestaurantService, private adminService : AdminService,
     private _router : Router, private route: ActivatedRoute) {
       this.selectedDishes=[];
       this.RestaurantId = +this.route.snapshot.paramMap.get('id');
-      this.RestaurantService.getAllRestaurants().subscribe(
-        (result) => {
-          this.eatery = result;
-          console.log(result);
-          this.currentRestaurant = this.eatery.find(k=>k.ID  == this.RestaurantId);
-        },
-        err=> {
-          console.log(err);
-        }
-      );
-      
-     }
+      this.eatery = this.route.snapshot.data.resolvedData;
+      this.currentRestaurant = this.eatery.find(k=>k.ID  == this.RestaurantId);      
+    }
 
     forCart(RestaurantId: number): void 
     {
@@ -40,7 +32,16 @@ export class MenuComponent implements OnInit {
     addDishes(): void {
       this._router.navigate(["/add-dishes/"+ this.RestaurantId]);
     }
-    
+    deleteDishes(id: number): void {
+      this.adminService.removeDishes(id).subscribe(
+        result => {
+          this._router.navigate(["/menu/" + this.RestaurantId]);
+        },
+        err => {
+          console.log(err);
+        }
+      )
+    }
 
   ngOnInit() {
     
