@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { RestaurantAC } from './RestaurantAC.model';
-import { AllDishes } from './AllDishes.model';
-import { AllRestaurants } from './AllRestaurants.model';
-import { AllDetails } from './AllDetails.model';
+import { RestaurantAC } from '../models/RestaurantAC.model';
+import { AllDishes } from '../models/AllDishes.model';
+import { AllRestaurants } from '../models/AllRestaurants.model';
+import { AllDetails } from '../models/AllDetails.model';
 
 @Injectable({
   providedIn: 'root'

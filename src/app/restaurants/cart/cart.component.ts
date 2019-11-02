@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { AllDishes } from 'src/app/shared/AllDishes.model';
+import { AllDishes } from 'src/app/shared/models/AllDishes.model';
 
 @Component({
   selector: 'app-cart',

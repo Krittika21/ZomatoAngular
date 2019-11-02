@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { RestaurantService } from './restaurant.service';
 import { Router, ActivatedRoute, Resolve } from '@angular/router';
-import { AllDetails } from './AllDetails.model';
+import { AllDetails } from '../models/AllDetails.model';
 import { Observable } from 'rxjs';
 
 @Injectable({

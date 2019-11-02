@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { AllDishes } from 'src/app/shared/AllDishes.model';
-import { RestaurantService } from 'src/app/shared/restaurant.service';
+import { AllDishes } from 'src/app/shared/models/AllDishes.model';
+import { RestaurantService } from 'src/app/shared/services/restaurant.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { RestaurantAC } from 'src/app/shared/RestaurantAC.model';
-import { AllRestaurants } from 'src/app/shared/AllRestaurants.model';
-import { AdminService } from 'src/app/shared/admin.service';
+import { RestaurantAC } from 'src/app/shared/models/RestaurantAC.model';
+import { AllRestaurants } from 'src/app/shared/models/AllRestaurants.model';
+import { AdminService } from 'src/app/shared/services/admin.service';
 
 @Component({
   selector: 'app-menu',

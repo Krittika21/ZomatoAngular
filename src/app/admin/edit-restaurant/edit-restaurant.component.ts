@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { RestaurantService } from 'src/app/shared/restaurant.service';
-import { AllDetails } from 'src/app/shared/AllDetails.model';
-import { AdminService } from 'src/app/shared/admin.service';
+import { RestaurantService } from 'src/app/shared/services/restaurant.service';
+import { AllDetails } from 'src/app/shared/models/AllDetails.model';
+import { AdminService } from 'src/app/shared/services/admin.service';
 
 @Component({
   selector: 'app-edit-restaurant',

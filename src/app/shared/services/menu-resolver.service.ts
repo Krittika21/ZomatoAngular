@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Resolve, Router, ActivatedRoute } from '@angular/router';
-import { AllRestaurants } from './AllRestaurants.model';
+import { AllRestaurants } from '../models/AllRestaurants.model';
 import { RestaurantService } from './restaurant.service';
 import { Observable } from 'rxjs';
 

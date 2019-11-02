@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { AddRestaurantComponent } from '../admin/add-restaurant/add-restaurant.component';
-import { DetailsComponent } from '../restaurants/details/details.component';
+import { AddRestaurantComponent } from '../../admin/add-restaurant/add-restaurant.component';
+import { DetailsComponent } from '../../restaurants/details/details.component';
 import { HttpClient } from '@angular/common/http';
-import { AllDetails } from './AllDetails.model';
-import { AllDishes } from './AllDishes.model';
+import { AllDetails } from '../models/AllDetails.model';
+import { AllDishes } from '../models/AllDishes.model';
 import { Observable } from 'rxjs';
 
 @Injectable({

@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { AdminService } from 'src/app/shared/admin.service';
+import { AdminService } from 'src/app/shared/services/admin.service';
 import { Router } from '@angular/router';
-import { AllDetails } from 'src/app/shared/AllDetails.model';
-import { AllCity } from 'src/app/shared/AllCity.model';
-import { AllCountry } from 'src/app/shared/AllCountry.model';
-import { AllRestaurants } from 'src/app/shared/AllRestaurants.model';
-import { RestaurantService } from 'src/app/shared/restaurant.service';
+import { AllDetails } from 'src/app/shared/models/AllDetails.model';
+import { AllCity } from 'src/app/shared/models/AllCity.model';
+import { AllCountry } from 'src/app/shared/models/AllCountry.model';
+import { AllRestaurants } from 'src/app/shared/models/AllRestaurants.model';
+import { RestaurantService } from 'src/app/shared/services/restaurant.service';
 
 @Component({
   selector: 'app-add-restaurant',

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { RestaurantService } from 'src/app/shared/restaurant.service';
+import { RestaurantService } from 'src/app/shared/services/restaurant.service';
 import { Router } from '@angular/router';
-import { AllRestaurants } from 'src/app/shared/AllRestaurants.model';
+import { AllRestaurants } from 'src/app/shared/models/AllRestaurants.model';
 
 @Component({
   selector: 'all-restaurants',

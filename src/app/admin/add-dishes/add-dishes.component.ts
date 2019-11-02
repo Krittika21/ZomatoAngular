@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AllDishes } from 'src/app/shared/AllDishes.model';
-import { AdminService } from 'src/app/shared/admin.service';
+import { AllDishes } from 'src/app/shared/models/AllDishes.model';
+import { AdminService } from 'src/app/shared/services/admin.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { AllRestaurants } from 'src/app/shared/AllRestaurants.model';
+import { AllRestaurants } from 'src/app/shared/models/AllRestaurants.model';
 
 @Component({
   selector: 'app-add-dishes',

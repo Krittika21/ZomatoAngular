@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { RestaurantService } from 'src/app/shared/restaurant.service';
+import { RestaurantService } from 'src/app/shared/services/restaurant.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { AllRestaurants } from 'src/app/shared/AllRestaurants.model';
-import { AllDetails } from 'src/app/shared/AllDetails.model';
+import { AllRestaurants } from 'src/app/shared/models/AllRestaurants.model';
+import { AllDetails } from 'src/app/shared/models/AllDetails.model';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
-import { AllCity } from 'src/app/shared/AllCity.model';
-import { AllCountry } from 'src/app/shared/AllCountry.model';
+import { AllCity } from 'src/app/shared/models/AllCity.model';
+import { AllCountry } from 'src/app/shared/models/AllCountry.model';
 
 @Component({
   selector: 'app-details',
