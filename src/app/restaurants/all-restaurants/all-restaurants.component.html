@@ -1,15 +1,22 @@
+
+
 <div class="container">
-  <div>
-    <button type="button" class="btn btn-info" id="right" (click)="forAdd()">Add Restaurant</button>
+  <div class="row">
+    <div class="col-8">
+      <button type="button" hidden class="btn btn-info" (click)="forAdd()">Add Restaurant</button>
+    </div>
+      <a href="#" class="signup-link header-login-button ui button mr0" id="login-link" [routerLink]="['/login-form']">Login </a>
+      <a href="#" class="signup-link header-signup-button ui button mr0" id="signup-link" [routerLink]="['/registration-form']">Create an account</a>
   </div>
-  <h1 class="jumbotron text-white">FOODIE</h1>
+  <h1 >FOODIE</h1>
 </div>
+
 
 <div class="row">
 <div class="card" *ngFor = "let names of restaurant" >
   <h5 class="jumbotron">{{names.RestaurantName}}</h5>
     <div class="card-body">
-      <button class="btn btn-link" (click)= "forDetails(names.ID)">View Details</button>
+      <button class="btn btn-link" (click)= "forDetails(names.ID)" >View Details</button>
       <button class="btn btn-link" (click)= "forMenu(names.ID)">Order Online</button>
     </div>
   </div>

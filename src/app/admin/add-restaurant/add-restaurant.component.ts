@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { AllDetails } from 'src/app/shared/models/AllDetails.model';
 import { AllCity } from 'src/app/shared/models/AllCity.model';
 import { AllCountry } from 'src/app/shared/models/AllCountry.model';
-import { AllRestaurants } from 'src/app/shared/models/AllRestaurants.model';
 import { RestaurantService } from 'src/app/shared/services/restaurant.service';
 
 @Component({

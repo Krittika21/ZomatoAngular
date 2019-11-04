@@ -3,6 +3,7 @@ import { UserService } from 'src/app/shared/services/user.service';
 import { Router } from '@angular/router';
 import { User } from 'src/app/shared/models/user.model';
 
+
 @Component({
   selector: 'app-registration-form',
   templateUrl: './registration-form.component.html',
@@ -14,22 +15,21 @@ export class RegistrationFormComponent implements OnInit {
   isRequesting: boolean;
   submitted: boolean = false;
   user: User;
-  constructor(private userService: UserService, private _router: Router) { }
+  constructor(private userService: UserService, private _router: Router) { 
+   this.user = new User();
+  }
 
   ngOnInit() {
   }
-  registerUser({ valid }: {  valid: boolean }) {
+  registerUser() {
     this.submitted = true;
     this.isRequesting = true;
     this.errors='';
-    if(valid)
-    {
-        this.userService.register(this.user.email, this.user.password, this.user.userName)
+        this.userService.register(this.user.email, this.user.password, this.user.email, this.user.password)
                   .subscribe(
                     result  => {if(result){
-                        this._router.navigate(['/login'],{queryParams: {brandNew: true}});                         
+                        this._router.navigate(['/all-restaurants'],{queryParams: {brandNew: true}});                         
                     }},
-                    errors =>  this.errors = errors);
-    }      
+                    errors =>  this.errors = errors);     
   }
 }

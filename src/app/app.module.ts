@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AdminModule } from './admin/admin.module';
 import { AccountModule } from './account/account.module';
 import { DashboardModule } from './dashboard/dashboard.module';
+import { RouterLink } from '@angular/router';
 
 @NgModule({
   declarations: [ AppComponent],
@@ -19,8 +20,7 @@ import { DashboardModule } from './dashboard/dashboard.module';
     AdminModule,
     AccountModule,
     DashboardModule,
-    AppRoutingModule
-    
+    AppRoutingModule  
     
   ],
   providers: [],

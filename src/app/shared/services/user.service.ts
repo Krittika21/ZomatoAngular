@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
 export class UserService extends BaseService{
 
   URL: string = "https://localhost:44335/api";
-  baseUrl: string = '';
+  //baseUrl: string = 'api';
 
   // Observable navItem source
   private _authNavStatusSource = new BehaviorSubject<boolean>(false);
@@ -28,8 +28,8 @@ export class UserService extends BaseService{
     this._authNavStatusSource.next(this.loggedIn);
   }
 
-  register(email: string, password: string, UserName: string) {
-    let body = JSON.stringify({ email, password, UserName });
+  register(email: string, password: string, UserName: string, confirmPassword:string) {
+    let body = JSON.stringify({ email, password, UserName, confirmPassword });
     let httpHeaders = new HttpHeaders({
       'Content-Type': 'application/json'
     }
@@ -38,7 +38,7 @@ export class UserService extends BaseService{
       headers: httpHeaders
     }
 
-    return this.http.post(this.baseUrl + "/accounts", body, options);
+    return this.http.post(this.URL + "/Account/signUp", body, options);
   }
   
   logIn(email: string, password: string)
@@ -50,16 +50,15 @@ export class UserService extends BaseService{
     const options = {
       headers: httpHeaders
     }
-    return this.http
-      .post<User>(this.baseUrl + '/auth/login',JSON.stringify({ email, password }), options).subscribe(res => {
-        localStorage.setItem('currentUser', JSON.stringify(res));
-        this.loggedIn = true;
-        this._authNavStatusSource.next(true);
-        return true;
-      },
-      err => {
-        console.log(err);
-      })
+    return this.http.post<User>(this.URL + '/Account/logIn',JSON.stringify({ email, password }), options).pipe(map(res => {
+      localStorage.setItem('currentUser', JSON.stringify(res));
+      this.loggedIn = true;
+      this._authNavStatusSource.next(true);
+      return true;
+    },
+    err => {
+      console.log(err);
+    }));
   }
   LogOut()
   {

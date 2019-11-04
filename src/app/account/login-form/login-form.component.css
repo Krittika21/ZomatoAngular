@@ -1,0 +1,29 @@
+.jumbotron
+{
+    background-color: #0c7d75;
+    margin-top:10%; 
+    text-align: center; 
+    box-shadow: 5px 5px 15px #000302;
+}
+#id1
+{
+    font-family: 'Lucida Calligraphy', Times, serif;
+}
+h1
+{
+    color: ghostwhite; 
+    border-color: black; 
+    margin-top:150px;
+}
+#id2
+{
+    border-left: 1px solid #777;
+}
+#rightcontainer
+{
+    background-color: #09877f;
+}
+#id3
+{
+    height: 90%; width: 85%;
+}

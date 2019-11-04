@@ -12,18 +12,22 @@ import { EditResolver } from './shared/services/edit-resolver.service';
 import { AddDishesComponent } from './admin/add-dishes/add-dishes.component';
 import { MenuResolver } from './shared/services/menu-resolver.service';
 import { RegistrationFormComponent } from './account/registration-form/registration-form.component';
+import { LoginFormComponent } from './account/login-form/login-form.component';
+import { AuthGuard } from './auth.guard';
 
 
 const routes: Routes = [
 
-  { path: 'all-restaurants' , component:AllRestaurantsComponent},
-  { path: 'menu/:id', component:MenuComponent, resolve: {resolvedData: MenuResolver}, runGuardsAndResolvers: 'always'},
-  { path: 'details/:id', component:DetailsComponent},
-  { path: 'cart/:id', component:CartComponent},
-  { path: 'add-restaurant', component:AddRestaurantComponent},
-  { path: 'edit-restaurant/:id', component:EditRestaurantComponent, resolve: {resolvedData: EditResolver}},
-  { path: 'add-dishes/:id', component:AddDishesComponent},
-  { path: '', component:RegistrationFormComponent}
+  { path: 'all-restaurants' , component:AllRestaurantsComponent, canActivate: [AuthGuard]},
+  { path: 'menu/:id', component:MenuComponent, resolve: {resolvedData: MenuResolver}, runGuardsAndResolvers: 'always', canActivate: [AuthGuard]},
+  { path: 'details/:id', component:DetailsComponent, canActivate: [AuthGuard]},
+  { path: 'cart/:id', component:CartComponent,canActivate: [AuthGuard]},
+  { path: 'add-restaurant', component:AddRestaurantComponent, canActivate: [AuthGuard]},
+  { path: 'edit-restaurant/:id', component:EditRestaurantComponent, resolve: {resolvedData: EditResolver}, canActivate: [AuthGuard]},
+  { path: 'add-dishes/:id', component:AddDishesComponent, canActivate: [AuthGuard]},
+  { path: 'login-form', component:LoginFormComponent},
+  { path: 'registration-form', component:RegistrationFormComponent},
+  { path: '', component:AllRestaurantsComponent}
 ];
 
 @NgModule({
