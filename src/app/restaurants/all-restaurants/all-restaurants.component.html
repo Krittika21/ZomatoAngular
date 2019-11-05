@@ -5,9 +5,16 @@
     <div class="col-8">
       <button type="button" hidden class="btn btn-info" (click)="forAdd()">Add Restaurant</button>
     </div>
-      <a href="#" class="signup-link header-login-button ui button mr0" id="login-link" [routerLink]="['/login-form']">Login </a>
-      <a href="#" class="signup-link header-signup-button ui button mr0" id="signup-link" [routerLink]="['/registration-form']">Create an account</a>
-  </div>
+      <a *ngIf="!userService.isLoggedIn()" href="#" class="signup-link header-login-button ui button mr0" id="login-link" [routerLink]="['/login-form']">Login </a>
+      <a *ngIf="!userService.isLoggedIn()" href="#" class="signup-link header-signup-button ui button mr0" id="signup-link" [routerLink]="['/registration-form']">Create an account</a>
+      <!-- <a *ngIf= "userService.isLoggedIn()" href="#" class="signup-link header-logout-button ui button mr0" id="logout-link" [routerLink]="['/login-form']">Log Out</a> -->
+    </div>
+  <div class="row">
+    <div class="col-10">
+      <button type="button" hidden class="btn btn-info" (click)="forAdd()">Add Restaurant</button>
+    </div>
+    <a *ngIf="userService.isLoggedIn()" href="#" class="signup-link header-logout-button ui button mr0" id="logout-link" [routerLink]="['/login-form']">Log Out</a>
+  </div> 
   <h1 >FOODIE</h1>
 </div>
 

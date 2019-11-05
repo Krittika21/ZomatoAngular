@@ -10,7 +10,7 @@ h1
 {
     color: ghostwhite; 
     border-color: black; 
-    margin-top:150px;
+    margin-top:190px;
 }
 #id1
 {
@@ -37,4 +37,8 @@ h1
 {
     border : solid;
     border-color: grey;
+}
+#go-back
+{
+    color: black;
 }

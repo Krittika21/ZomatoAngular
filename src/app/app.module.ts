@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -8,7 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AdminModule } from './admin/admin.module';
 import { AccountModule } from './account/account.module';
 import { DashboardModule } from './dashboard/dashboard.module';
-import { RouterLink } from '@angular/router';
+import { Authorization } from './shared/Interceptor/authorization.interceptor';
 
 @NgModule({
   declarations: [ AppComponent],
@@ -23,7 +23,11 @@ import { RouterLink } from '@angular/router';
     AppRoutingModule  
     
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS, useClass: Authorization, multi:true
+    }
+  ],
   bootstrap: [
     AppComponent
   ]

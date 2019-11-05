@@ -29,9 +29,12 @@
                                 <div class="form-group">
                                     <button type="submit" (click)="login()"  class="btn btn-primary" >Login</button>
                                     <hr />
-                                    <button>New here?... Register</button>
+                                    <button [routerLink]="['/registration-form']">New here?... Register</button>
                                 </div>
                             </form>
+                            <div>
+                                    <a class="btn btn-default" id="go-back" [routerLink]="['/all-restaurants']">Back to Restaurants</a>
+                            </div>
                         </div>
                     </div>
                 </div>

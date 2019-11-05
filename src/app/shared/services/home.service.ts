@@ -1,9 +1,7 @@
-import { Injectable } from '@angular/core';
+/* import { Injectable } from '@angular/core';
 import { BaseService } from './base.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { HomeDetails } from '../models/home-details.interface';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -30,4 +28,4 @@ export class HomeService extends BaseService {
         return this.http.get(this.URL + "/all-restaurants", options);
       }  
     }
-    
+     */

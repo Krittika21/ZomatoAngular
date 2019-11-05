@@ -33,6 +33,14 @@ h1
     color: snow;
     background-color: black;
 }
+#logout-link
+{
+    border: 1px solid snow;
+    font-size: 15px;
+    font-weight: bold;
+    color: snow;
+    background-color: black;
+}
 .container
 {
     background-image: url(https://media.cntraveller.in/wp-content/uploads/2019/10/image.jpg?auto=compress&cs=tinysrgb&dpr=2&h=30&w=20?output-format=webp);
@@ -53,6 +61,5 @@ h1
 
 .jumbotron
 {
-    
     background-color: #0c7d75;
 }
