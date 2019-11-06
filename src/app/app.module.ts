@@ -7,7 +7,6 @@ import { RestaurantsModule } from './restaurants/restaurants.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AdminModule } from './admin/admin.module';
 import { AccountModule } from './account/account.module';
-import { DashboardModule } from './dashboard/dashboard.module';
 import { Authorization } from './shared/Interceptor/authorization.interceptor';
 
 @NgModule({
@@ -19,7 +18,6 @@ import { Authorization } from './shared/Interceptor/authorization.interceptor';
     RestaurantsModule,
     AdminModule,
     AccountModule,
-    DashboardModule,
     AppRoutingModule  
     
   ],

@@ -22,7 +22,7 @@ export class UserService extends BaseService{
 
   constructor(private http: HttpClient) {
     super();
-    this.loggedIn = !!localStorage.getItem('auth_token');
+    this.loggedIn = !!localStorage.getItem('currentUser');
     this._authNavStatusSource.next(this.loggedIn);
   }
 
@@ -49,7 +49,7 @@ export class UserService extends BaseService{
       headers: httpHeaders
     }
     return this.http.post<User>(this.URL + '/Account/logIn',JSON.stringify({ email, password }), options).pipe(map(res => {
-      localStorage.setItem('currentUserToken', JSON.stringify(res));
+      localStorage.setItem('currentUser', JSON.stringify(res));
       this.loggedIn = true;
       this._authNavStatusSource.next(true);
       return true;
@@ -60,7 +60,7 @@ export class UserService extends BaseService{
   }
   LogOut()
   {
-    localStorage.removeItem('auth_token');
+    localStorage.removeItem('currentUser');
     this.loggedIn = false;
     this._authNavStatusSource.next(false);
   }
@@ -71,9 +71,9 @@ export class UserService extends BaseService{
 
   getCurrentUser(UserName: string, role:string): Observable<User>
   {
-    return this.http.get<User>(this.)
+    return this.http.get<User>(this.URL + '/Account/login');
   }
 
-  }
+}
 
 

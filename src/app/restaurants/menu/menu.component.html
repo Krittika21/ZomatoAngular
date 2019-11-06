@@ -2,7 +2,7 @@
     <div class="container">
     <div class="jumbotron text-white">
         <div>
-          <button type="button" class="btn btn-success" id="right" (click)="addDishes(currentRestaurant.RestaurantId)">Add Dishes</button>
+          <button *ngIf="isAdmin === true" type="button" class="btn btn-success" id="right" (click)="addDishes(currentRestaurant.RestaurantId)">Add Dishes</button>
           
         </div>
         <h1>{{currentRestaurant.RestaurantName}}</h1>

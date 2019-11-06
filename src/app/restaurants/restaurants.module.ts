@@ -6,6 +6,8 @@ import { DetailsComponent } from './details/details.component';
 import { MenuComponent } from './menu/menu.component';
 import { CartComponent } from './cart/cart.component';
 import { RouterModule } from '@angular/router';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { Authorization } from '../shared/Interceptor/authorization.interceptor';
 
 
 
@@ -20,6 +22,10 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     FormsModule,
     RouterModule
-  ]
+  ],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS, useClass: Authorization, multi:true
+    }]
 })
 export class RestaurantsModule { }

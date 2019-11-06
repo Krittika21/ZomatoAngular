@@ -5,6 +5,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { RestaurantAC } from 'src/app/shared/models/RestaurantAC.model';
 import { AllRestaurants } from 'src/app/shared/models/AllRestaurants.model';
 import { AdminService } from 'src/app/shared/services/admin.service';
+import { User } from 'src/app/shared/models/user.model';
 
 @Component({
   selector: 'app-menu',
@@ -17,12 +18,24 @@ export class MenuComponent implements OnInit {
   dishes: AllDishes[];
   selectedDishes: AllDishes[];
   currentRestaurant: AllRestaurants;
+  currentUser: User;
+  isAdmin: boolean;
+  
   constructor(private RestaurantService: RestaurantService, private adminService : AdminService,
     private _router : Router, private route: ActivatedRoute) {
       this.selectedDishes=[];
       this.RestaurantId = +this.route.snapshot.paramMap.get('id');
       this.eatery = this.route.snapshot.data.resolvedData;
-      this.currentRestaurant = this.eatery.find(k=>k.ID  == this.RestaurantId);      
+      this.currentRestaurant = this.eatery.find(k=>k.ID  == this.RestaurantId);   
+      this.isAdmin = false;
+      this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+      if(this.currentUser !== null)
+      {
+        if(this.currentUser.role.toString() === 'admin')
+        {
+          this.isAdmin = true;
+        }
+      }       
     }
 
     forCart(RestaurantId: number): void 

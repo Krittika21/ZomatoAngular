@@ -6,6 +6,7 @@ import { AllDetails } from 'src/app/shared/models/AllDetails.model';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { AllCity } from 'src/app/shared/models/AllCity.model';
 import { AllCountry } from 'src/app/shared/models/AllCountry.model';
+import { User } from 'src/app/shared/models/user.model';
 
 @Component({
   selector: 'app-details',
@@ -16,10 +17,22 @@ export class DetailsComponent implements OnInit {
   //restaurant: Array<AllRestaurants>;
   details: Array<AllDetails>;
   RestaurantId: number;
+  currentUser: User;
+  isAdmin: boolean;
+  
   constructor(private RestaurantService: RestaurantService, 
     private _router : Router, private route: ActivatedRoute) { 
       this.RestaurantId = +this.route.snapshot.paramMap.get('id');
-    
+      this.isAdmin = false;
+      this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+      if(this.currentUser !== null)
+      {
+        if(this.currentUser.role.toString() === 'admin')
+        {
+          console.log(this.currentUser.role);
+          this.isAdmin = true;
+        }
+      }    
     }
 
     forEdit(): void {

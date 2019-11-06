@@ -26,3 +26,11 @@ label
     position: absolute;
     margin-left: 52%;
 }
+#comments
+{
+    border: 1px solid gray;
+}
+#like
+{
+    border: 1px solid gray;
+}

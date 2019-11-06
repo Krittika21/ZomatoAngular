@@ -2,8 +2,8 @@
 <div class="container">
     <div class="jumbotron text-white">
         <div class="row">
-            <button type="button" class="btn btn-danger" id="right" (click)="forEdit()">Edit Restaurant</button>
-            <button type="button" class="btn btn-danger" id="rightD" (click)="forDelete()">Delete Restaurant</button>
+            <button *ngIf="isAdmin === true" type="button" class="btn btn-danger" id="right" (click)="forEdit()">Edit Restaurant</button>
+            <button *ngIf="isAdmin === true" type="button" class="btn btn-danger" id="rightD" (click)="forDelete()">Delete Restaurant</button>
         </div>
         <h1>{{names.RestaurantName}}</h1>
         <hr/>
@@ -38,10 +38,17 @@
     <h3>Reviews</h3>
     <div>
         <p>User Name</p>
-        <p>Review text</p>
-        <p>likes and comments</p>
+        <div class="form-group">
+            <label for="comment">Comment:</label>
+            <textarea class="form-control" rows="1" id="comment"></textarea>
+        </div>
+        <button type="button" class="btn btn-default" id="like">Like</button>
+        <button type="button" class="btn btn-default" id="comments">Comments</button>
     </div>
-    <button>Add Review</button>
+    <br>
+    <div>
+        <button>Add Review</button>
+    </div>
 </div>
 <hr/>
 </div>

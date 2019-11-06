@@ -32,6 +32,7 @@ export class RestaurantService {
   {
     return this._http.get<AllDetails[]>(this.URL + '/Restaurant/restaurant/'+ id);
   }
+  
   getDishes(id: number): Observable<AllDishes[]>
   {
     return this._http.get<AllDishes[]>(this.URL + '/Restaurant/restaurant/dishes/' + id);
