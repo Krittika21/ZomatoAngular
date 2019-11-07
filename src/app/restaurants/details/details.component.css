@@ -34,3 +34,12 @@ label
 {
     border: 1px solid gray;
 }
+h4
+{
+    text-align: center;
+}
+#left
+{
+    margin-left: 13px;
+    margin-right: 40em;
+}

@@ -25,7 +25,7 @@ export class RegistrationFormComponent implements OnInit {
     this.submitted = true;
     this.isRequesting = true;
     this.errors='';
-        this.userService.register(this.user.email, this.user.password, this.user.email, this.user.password)
+        this.userService.register(this.user.email, this.user.password, this.user.email, this.user.password, this.user.fullName, this.user.phoneNumber)
                   .subscribe(
                     result  => {if(result){
                         this._router.navigate(['/all-restaurants'],{queryParams: {brandNew: true}});                         

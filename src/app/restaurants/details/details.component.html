@@ -9,46 +9,51 @@
         <hr/>
         <div class="row">
         <p>LOCATION : {{names.Locality}}, {{names.City.Name}}, {{names.Country.Name}}</p>
-        <p class="Right">Rating</p>
+        <!-- <ngb-rating [(rate)]="currentRate"></ngb-rating>
+        <pre>Rate: <b></b></pre> -->
         </div>    
     </div>
+
+    <div class="row">
+            <div id="left">
+                <label>Contact Number</label>
+                <p>{{names.ContactNumber}}</p>
+                <label>Cuisine Type</label>
+                <p>{{names.CuisineType}}</p>
+                <label>Average Cost for Two</label>
+                <p> ₹ {{names.AverageCost}}</p>
+                <label>Opening Hours</label>
+                <p>{{names.OpeningHours}}</p>
+            </div>
+            <div class="card">
+                <h4>Add Review</h4>
+                <br/>
+                <app-reviews></app-reviews>
+            </div>
+    </div>
     <div>
-        <label>Contact Number</label>
-        <p>{{names.ContactNumber}}</p>
-        <label>Cuisine Type</label>
-        <p>{{names.CuisineType}}</p>
-        <label>Average Cost for Two</label>
-        <p> ₹ {{names.AverageCost}}</p>
-        <label>Opening Hours</label>
-        <p>{{names.OpeningHours}}</p>
-        <div>
-            <hr/>
-            <h5>MORE INFO: </h5>
-            <p>{{names.MoreInfo}}</p>
-        </div>
-        <hr/>  
-        <div>
-            <button>menu 1</button>
-            <button>menu 2</button>
-        </div>
-    </div>     
+        <hr/>
+        <h5>MORE INFO: </h5>
+        <p>{{names.MoreInfo}}</p>
+    </div>
+    <hr/>  
+    <div>
+        <button>menu 1</button>
+        <button>menu 2</button>
+    </div>
+    </div>
 </div>
-<hr/>
+<br/>
 <div class="container">
     <h3>Reviews</h3>
-    <div>
-        <p>User Name</p>
+</div>
+    <!--<div>
+         <p>{{names.allReviews.UserName}}</p>
         <div class="form-group">
             <label for="comment">Comment:</label>
-            <textarea class="form-control" rows="1" id="comment"></textarea>
-        </div>
-        <button type="button" class="btn btn-default" id="like">Like</button>
+            <p >{{names.allReviews.ReviewTexts}}</p>
+            <p>{{names.allReviews.LikesCount}}</p>
+        </div> 
+        <button type="button" class="btn btn-default" id="like" (click)="onLike()">Like</button>
         <button type="button" class="btn btn-default" id="comments">Comments</button>
-    </div>
-    <br>
-    <div>
-        <button>Add Review</button>
-    </div>
-</div>
-<hr/>
-</div>
+    </div>-->

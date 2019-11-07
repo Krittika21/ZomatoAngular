@@ -26,8 +26,8 @@ export class UserService extends BaseService{
     this._authNavStatusSource.next(this.loggedIn);
   }
 
-  register(email: string, password: string, UserName: string, confirmPassword:string) {
-    let body = JSON.stringify({ email, password, UserName, confirmPassword });
+  register(email: string, password: string, UserName: string, confirmPassword:string, fullName:string, phoneNumber:string) {
+    let body = JSON.stringify({ email, password, UserName, confirmPassword, fullName, phoneNumber });
     let httpHeaders = new HttpHeaders({
       'Content-Type': 'application/json'
     }

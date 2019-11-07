@@ -1,12 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { RestaurantService } from 'src/app/shared/services/restaurant.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { AllRestaurants } from 'src/app/shared/models/AllRestaurants.model';
 import { AllDetails } from 'src/app/shared/models/AllDetails.model';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
-import { AllCity } from 'src/app/shared/models/AllCity.model';
-import { AllCountry } from 'src/app/shared/models/AllCountry.model';
 import { User } from 'src/app/shared/models/user.model';
+import { Review } from 'src/app/shared/models/review.model';
 
 @Component({
   selector: 'app-details',
@@ -14,7 +11,7 @@ import { User } from 'src/app/shared/models/user.model';
   styleUrls: ['./details.component.css']
 })
 export class DetailsComponent implements OnInit {
-  //restaurant: Array<AllRestaurants>;
+
   details: Array<AllDetails>;
   RestaurantId: number;
   currentUser: User;
@@ -49,6 +46,14 @@ export class DetailsComponent implements OnInit {
           console.log(err);
         }
       )
+    }
+    addReview()
+    {
+      this._router.navigate(["add-dishes/" + this.RestaurantId + "/reviews"]);
+    }
+    onLike()
+    {
+      
     }
 
   ngOnInit() {

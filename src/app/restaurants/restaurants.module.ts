@@ -8,6 +8,7 @@ import { CartComponent } from './cart/cart.component';
 import { RouterModule } from '@angular/router';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Authorization } from '../shared/Interceptor/authorization.interceptor';
+import { ReviewsComponent } from './reviews/reviews.component';
 
 
 
@@ -17,6 +18,7 @@ import { Authorization } from '../shared/Interceptor/authorization.interceptor';
     DetailsComponent,
     MenuComponent,
     CartComponent,
+    ReviewsComponent,
   ],
   imports: [
     CommonModule,

@@ -5,6 +5,7 @@ import { RestaurantAC } from '../models/RestaurantAC.model';
 import { AllDishes } from '../models/AllDishes.model';
 import { AllRestaurants } from '../models/AllRestaurants.model';
 import { AllDetails } from '../models/AllDetails.model';
+import { Review } from '../models/review.model';
 
 @Injectable({
   providedIn: 'root'
@@ -41,5 +42,10 @@ export class RestaurantService {
   removeRestaurant(RestaurantId: number):Observable<AllRestaurants>
   {
     return this._http.delete<AllRestaurants>(this.URL + '/Restaurant/restaurant/' + RestaurantId);
+  }
+
+  addReviews(RestaurantId: number, body: Review)
+  {
+    return this._http.post(this.URL + '/Restaurant/reviews/' + RestaurantId, body);
   }
 }

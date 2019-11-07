@@ -14,6 +14,7 @@ import { MenuResolver } from './shared/services/menu-resolver.service';
 import { RegistrationFormComponent } from './account/registration-form/registration-form.component';
 import { LoginFormComponent } from './account/login-form/login-form.component';
 import { AuthGuard } from './auth.guard';
+import { ReviewsComponent } from './restaurants/reviews/reviews.component';
 
 
 const routes: Routes = [
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: 'add-dishes/:id', component:AddDishesComponent, canActivate: [AuthGuard]},
   { path: 'login-form', component:LoginFormComponent},
   { path: 'registration-form', component:RegistrationFormComponent},
+  { path: 'add-dishes/:id/reviews', component:ReviewsComponent},
   { path: '', component:AllRestaurantsComponent}
 ];
 

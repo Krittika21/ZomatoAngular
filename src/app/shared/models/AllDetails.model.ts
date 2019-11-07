@@ -1,5 +1,6 @@
 import { AllCity } from './AllCity.model';
 import { AllCountry } from './AllCountry.model';
+import { Review } from './review.model';
 
 export class AllDetails {
     ID:number;
@@ -13,5 +14,6 @@ export class AllDetails {
     MoreInfo:string;
 
     City: AllCity;  
-    Country: AllCountry;      
+    Country: AllCountry;
+    allReviews: Review;      
 }

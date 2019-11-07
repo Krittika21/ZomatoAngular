@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/shared/services/user.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Credentials } from 'src/app/shared/models/credentials.interface';
