@@ -29,9 +29,9 @@ export class RestaurantService {
     return this._http.get<AllRestaurants[]>(this.URL + '/Restaurant/allrestaurants');
   }
 
-  getRestaurantLocation(id:number): Observable<AllDetails[]>
+  getRestaurantLocation(id:number): Observable<AllDetails>
   {
-    return this._http.get<AllDetails[]>(this.URL + '/Restaurant/restaurant/'+ id);
+    return this._http.get<AllDetails>(this.URL + '/Restaurant/restaurant/'+ id);
   }
   
   getDishes(id: number): Observable<AllDishes[]>
@@ -44,8 +44,13 @@ export class RestaurantService {
     return this._http.delete<AllRestaurants>(this.URL + '/Restaurant/restaurant/' + RestaurantId);
   }
 
-  addReviews(RestaurantId: number, body: Review)
+  addReview(body: Review)
   {
-    return this._http.post(this.URL + '/Restaurant/reviews/' + RestaurantId, body);
+    return this._http.post(this.URL + '/Restaurant/reviews/' + body.restaurantID, body);
+  }
+
+  postLikes(body: Review)
+  {
+    return this._http.post(this.URL + '/Restaurant/reviewsLikes/' + body.restaurantID, body);
   }
 }

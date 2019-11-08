@@ -1,8 +1,8 @@
 <div class="container">
-        <p>User Name</p>
+        <p>{{this.user.fullName}}</p>
         <div class="form-group">
             <label for="comment">Comment:</label>
-            <input type="text" name="ReviewTexts" [(ngModel)]="ReviewTexts" class="form-control"/>
+            <input type="text" name="ReviewTexts" [(ngModel)]="this.allReview.ReviewTexts" class="form-control"/>
         </div>
         <button (click)="postReview()">Add Review</button>
         <!-- <button type="button" class="btn btn-default" id="comments">Comments</button> -->

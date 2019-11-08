@@ -15,13 +15,14 @@ import { RegistrationFormComponent } from './account/registration-form/registrat
 import { LoginFormComponent } from './account/login-form/login-form.component';
 import { AuthGuard } from './auth.guard';
 import { ReviewsComponent } from './restaurants/reviews/reviews.component';
+import { DetailResolver } from './shared/services/Detail-resolver';
 
 
 const routes: Routes = [
 
   { path: 'all-restaurants' , component:AllRestaurantsComponent, canActivate: [AuthGuard]},
   { path: 'menu/:id', component:MenuComponent, resolve: {resolvedData: MenuResolver}, runGuardsAndResolvers: 'always', canActivate: [AuthGuard]},
-  { path: 'details/:id', component:DetailsComponent, canActivate: [AuthGuard]},
+  { path: 'details/:id', component:DetailsComponent,  resolve: {resolvedData: DetailResolver},canActivate: [AuthGuard]},
   { path: 'cart/:id', component:CartComponent,canActivate: [AuthGuard]},
   { path: 'add-restaurant', component:AddRestaurantComponent, canActivate: [AuthGuard]},
   { path: 'edit-restaurant/:id', component:EditRestaurantComponent, resolve: {resolvedData: EditResolver}, canActivate: [AuthGuard]},

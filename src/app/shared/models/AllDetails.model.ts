@@ -15,5 +15,5 @@ export class AllDetails {
 
     City: AllCity;  
     Country: AllCountry;
-    allReviews: Review;      
+    AllReviews: Review[];      
 }

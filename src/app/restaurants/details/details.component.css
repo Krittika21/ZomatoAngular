@@ -43,3 +43,12 @@ h4
     margin-left: 13px;
     margin-right: 40em;
 }
+h3
+{
+    text-align: center;
+}
+#card
+{
+    margin-bottom: 10px;
+    background-color: rgb(227, 232, 233);
+}

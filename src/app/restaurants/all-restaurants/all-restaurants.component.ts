@@ -12,10 +12,10 @@ import { User } from 'src/app/shared/models/user.model';
 })
 export class AllRestaurantsComponent implements OnInit {
   restaurant: Array<AllRestaurants>;
-  id : number;
+  /* id : number;
   RestaurantName : string;
   Location : string;
-  Dishes : string;
+  Dishes : string; */
   isAuthenticated: boolean;
   currentUser: User;
   isAdmin: boolean;

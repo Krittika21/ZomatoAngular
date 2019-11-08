@@ -12,15 +12,18 @@ import { Review } from 'src/app/shared/models/review.model';
 })
 export class DetailsComponent implements OnInit {
 
-  details: Array<AllDetails>;
+  details: AllDetails;
   RestaurantId: number;
   currentUser: User;
   isAdmin: boolean;
   
   constructor(private RestaurantService: RestaurantService, 
     private _router : Router, private route: ActivatedRoute) { 
+      this.details = this.route.snapshot.data.resolvedData;
+      console.log(this.details);
       this.RestaurantId = +this.route.snapshot.paramMap.get('id');
       this.isAdmin = false;
+      //this.details = new AllDetails();
       this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
       if(this.currentUser !== null)
       {
@@ -51,22 +54,34 @@ export class DetailsComponent implements OnInit {
     {
       this._router.navigate(["add-dishes/" + this.RestaurantId + "/reviews"]);
     }
-    onLike()
+    onLike( ReviewId: number)
     {
-      
+      debugger;
+      const review = new Review();
+      review.ReviewId = ReviewId;
+      review.userID = this.currentUser.id;
+      review.restaurantID = this.RestaurantId;
+      this.RestaurantService.postLikes(review).subscribe(
+        result => {
+          debugger;
+          console.log(result);
+        },
+        err =>{
+          console.log(err);
+        }
+      );
     }
 
   ngOnInit() {
     this.RestaurantId = +this.route.snapshot.paramMap.get('id');
-    this.RestaurantService.getRestaurantLocation(this.RestaurantId).subscribe(
-    (result: Array<AllDetails>) => {
-      this.details = result;
-      console.log(result);
-    },
-    err => {
-      console.log(err);
-    }
-  );
+  //   this.RestaurantService.getRestaurantLocation(this.RestaurantId).subscribe(
+  //   (result: AllDetails) => {
+  //     this.details = result;
+  //     console.log(result);
+  //   },
+  //   err => {
+  //     console.log(err);
+  //   }
+  // );
   }
-
 }

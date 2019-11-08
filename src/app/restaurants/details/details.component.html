@@ -1,14 +1,14 @@
-<div *ngFor = "let names of details" >
+<div>
 <div class="container">
     <div class="jumbotron text-white">
         <div class="row">
             <button *ngIf="isAdmin === true" type="button" class="btn btn-danger" id="right" (click)="forEdit()">Edit Restaurant</button>
             <button *ngIf="isAdmin === true" type="button" class="btn btn-danger" id="rightD" (click)="forDelete()">Delete Restaurant</button>
         </div>
-        <h1>{{names.RestaurantName}}</h1>
+        <h1>{{details.RestaurantName}}</h1>
         <hr/>
         <div class="row">
-        <p>LOCATION : {{names.Locality}}, {{names.City.Name}}, {{names.Country.Name}}</p>
+        <p>LOCATION : {{details.Locality}}, {{details.City.Name}}, {{details.Country.Name}}</p>
         <!-- <ngb-rating [(rate)]="currentRate"></ngb-rating>
         <pre>Rate: <b></b></pre> -->
         </div>    
@@ -17,13 +17,13 @@
     <div class="row">
             <div id="left">
                 <label>Contact Number</label>
-                <p>{{names.ContactNumber}}</p>
+                <p>{{details.ContactNumber}}</p>
                 <label>Cuisine Type</label>
-                <p>{{names.CuisineType}}</p>
+                <p>{{details.CuisineType}}</p>
                 <label>Average Cost for Two</label>
-                <p> ₹ {{names.AverageCost}}</p>
+                <p> ₹ {{details.AverageCost}}</p>
                 <label>Opening Hours</label>
-                <p>{{names.OpeningHours}}</p>
+                <p>{{details.OpeningHours}}</p>
             </div>
             <div class="card">
                 <h4>Add Review</h4>
@@ -34,7 +34,7 @@
     <div>
         <hr/>
         <h5>MORE INFO: </h5>
-        <p>{{names.MoreInfo}}</p>
+        <p>{{details.MoreInfo}}</p>
     </div>
     <hr/>  
     <div>
@@ -46,14 +46,17 @@
 <br/>
 <div class="container">
     <h3>Reviews</h3>
+    <div *ngFor = "let review of this.details.AllReviews">
+        <div class="card" id="card">
+            <div class="card-body">
+              <h5 class="card-title">{{review.UserName}}</h5>
+                <div class="form-group">
+                    <p >{{review.ReviewTexts}}</p>
+                    <button (click)="onLike(review.ReviewId)">Likes : <a>{{review.LikesCount}}</a></button>
+                    <button>Comments : <a></a></button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-    <!--<div>
-         <p>{{names.allReviews.UserName}}</p>
-        <div class="form-group">
-            <label for="comment">Comment:</label>
-            <p >{{names.allReviews.ReviewTexts}}</p>
-            <p>{{names.allReviews.LikesCount}}</p>
-        </div> 
-        <button type="button" class="btn btn-default" id="like" (click)="onLike()">Like</button>
-        <button type="button" class="btn btn-default" id="comments">Comments</button>
-    </div>-->
+<hr/>
