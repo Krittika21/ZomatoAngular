@@ -52,3 +52,7 @@ h3
     margin-bottom: 10px;
     background-color: rgb(227, 232, 233);
 }
+.card-title
+{
+    text-decoration: underline;
+}

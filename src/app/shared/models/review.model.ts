@@ -6,4 +6,5 @@ export class Review
     UserName : string;
     LikesCount : number;
     ReviewTexts  : string; 
+    commentACs : Comment[];
 }

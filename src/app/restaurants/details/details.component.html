@@ -25,10 +25,10 @@
                 <label>Opening Hours</label>
                 <p>{{details.OpeningHours}}</p>
             </div>
-            <div class="card">
+            <div class="card" *ngIf = "!reviewed">
                 <h4>Add Review</h4>
                 <br/>
-                <app-reviews></app-reviews>
+                <app-reviews ></app-reviews>
             </div>
     </div>
     <div>
@@ -51,9 +51,27 @@
             <div class="card-body">
               <h5 class="card-title">{{review.UserName}}</h5>
                 <div class="form-group">
-                    <p >{{review.ReviewTexts}}</p>
-                    <button (click)="onLike(review.ReviewId)">Likes : <a>{{review.LikesCount}}</a></button>
-                    <button>Comments : <a></a></button>
+                    <mark>{{review.ReviewTexts}}</mark>
+                    <hr/>
+                    <div class="row">
+                        <div class="col-11">
+                            <button (click)="onLike(review.ReviewId)">Likes : <a>{{review.LikesCount}}</a></button>
+                        </div>
+                        <button> Delete </button>
+                    </div>
+                    <hr/>
+                    <div *ngFor="let texts of review.commentACs">
+                        <ul class="list-group">
+                         <li>
+                             <em>{{texts.FullName}} : </em>
+                             <p>{{texts.CommentMessage}}</p>
+                         </li> 
+                        </ul>
+                    </div>
+
+                    <label>Add Comments :</label> 
+                    <input class="form-control input-sm" id="inputsm" type="text" placeholder="Write your comment here "/>
+                    <button (click)="addComment(review.ReviewId)">Add</button>
                 </div>
             </div>
         </div>

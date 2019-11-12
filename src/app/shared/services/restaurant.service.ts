@@ -53,4 +53,9 @@ export class RestaurantService {
   {
     return this._http.post(this.URL + '/Restaurant/reviewsLikes/' + body.restaurantID, body);
   }
+
+  postComments(body: Comment)
+  {
+    return this._http.post(this.URL + '/Restaurant/comment/' + this.RestaurantId, body);
+  }
 }

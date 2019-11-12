@@ -32,7 +32,10 @@ export class ReviewsComponent implements OnInit {
       result => {
         console.log(result);
         debugger;
-        this._router.navigate(["/details/" + this.RestaurantId]);
+        //this._router.navigate(["/details/" + this.RestaurantId]);
+        this._router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+          this._router.navigate(['/details/'+ this.RestaurantId]);
+      }); 
       },
       err => {
         console.log(err);
