@@ -1,9 +1,10 @@
-import { Component, OnInit, Input, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { RestaurantService } from 'src/app/shared/services/restaurant.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AllDetails } from 'src/app/shared/models/AllDetails.model';
 import { User } from 'src/app/shared/models/user.model';
 import { Review } from 'src/app/shared/models/review.model';
+import { Comments } from 'src/app/shared/models/comments.model';
 
 @Component({
   selector: 'app-details',
@@ -17,10 +18,12 @@ export class DetailsComponent implements OnInit {
   currentUser: User;
   isAdmin: boolean;
   reviewed : boolean;
+  addText : Comments;
 
   constructor(private RestaurantService: RestaurantService, 
     private _router : Router, private route: ActivatedRoute, private changeDetector: ChangeDetectorRef) { 
       this.RestaurantId = +this.route.snapshot.paramMap.get('id');
+      this.addText = new Comments();
          
     }
 
@@ -70,15 +73,15 @@ export class DetailsComponent implements OnInit {
 
     addComment(ReviewId: number)
     {
-      // const review = new Review();
-      // const addtexts = review.commentACs;
-      // addtexts.
-      // addComment.userID = this.currentUser.id;
-      // addComment.restaurantID = this.RestaurantId;
-      const addtexts = new Comment();
-      this.RestaurantService.postComments(addtexts).subscribe(
+      this.addText.ReviewID = ReviewId;
+      this.addText.UserID = this.currentUser.id;
+      this.addText.FullName = this.currentUser.fullName;
+      this.RestaurantService.postComments(this.addText, this.RestaurantId).subscribe(
         result => {
           console.log(result);
+          this._router.navigateByUrl('/', { skipLocationChange:true}).then(() => {
+            this._router.navigate(['details/', this.RestaurantId]);
+          })
         },
         err => {
           console.log(err);

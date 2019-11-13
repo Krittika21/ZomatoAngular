@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { RestaurantAC } from '../models/RestaurantAC.model';
 import { AllDishes } from '../models/AllDishes.model';
 import { AllRestaurants } from '../models/AllRestaurants.model';
 import { AllDetails } from '../models/AllDetails.model';
 import { Review } from '../models/review.model';
+import { Comments } from '../models/comments.model';
 
 @Injectable({
   providedIn: 'root'
@@ -54,8 +54,8 @@ export class RestaurantService {
     return this._http.post(this.URL + '/Restaurant/reviewsLikes/' + body.restaurantID, body);
   }
 
-  postComments(body: Comment)
+  postComments(body: Comments, RestaurantId: number)
   {
-    return this._http.post(this.URL + '/Restaurant/comment/' + this.RestaurantId, body);
+    return this._http.post(this.URL + '/Restaurant/comment/' + RestaurantId, body);
   }
 }

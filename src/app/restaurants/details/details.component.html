@@ -70,7 +70,7 @@
                     </div>
 
                     <label>Add Comments :</label> 
-                    <input class="form-control input-sm" id="inputsm" type="text" placeholder="Write your comment here "/>
+                    <input class="form-control input-sm" id="inputsm" type="text" [(ngModel)]="addText.CommentMessage"  placeholder="Write your comment here "/>
                     <button (click)="addComment(review.ReviewId)">Add</button>
                 </div>
             </div>
