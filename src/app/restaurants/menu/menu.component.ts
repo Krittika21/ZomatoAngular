@@ -20,61 +20,68 @@ export class MenuComponent implements OnInit {
   currentRestaurant: AllRestaurants;
   currentUser: User;
   isAdmin: boolean;
-  
-  constructor(private RestaurantService: RestaurantService, private adminService : AdminService,
-    private _router : Router, private route: ActivatedRoute) {
-      this.selectedDishes=[];
-      this.RestaurantId = +this.route.snapshot.paramMap.get('id');
-      this.eatery = this.route.snapshot.data.resolvedData;
-      this.currentRestaurant = this.eatery.find(k=>k.ID  == this.RestaurantId);   
-      this.isAdmin = false;
-      this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
-      if(this.currentUser !== null)
-      {
-        if(this.currentUser.role.toString() === 'admin')
-        {
-          this.isAdmin = true;
-        }
-      }       
-    }
+  totals: number[];
 
-    forCart(RestaurantId: number): void 
-    {
-       this._router.navigate(["/cart/"+ RestaurantId], {state:{food: this.selectedDishes}})
+  constructor(private RestaurantService: RestaurantService, private adminService: AdminService,
+    private _router: Router, private route: ActivatedRoute) {
+    this.selectedDishes = [];
+    this.totals = [];
+    this.RestaurantId = +this.route.snapshot.paramMap.get('id');
+    this.eatery = this.route.snapshot.data.resolvedData;
+    this.currentRestaurant = this.eatery.find(k => k.ID == this.RestaurantId);
+    this.isAdmin = false;
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    if (this.currentUser !== null) {
+      if (this.currentUser.role.toString() === 'admin') {
+        this.isAdmin = true;
+      }
     }
-    addDishes(): void {
-      this._router.navigate(["/add-dishes/"+ this.RestaurantId]);
-    }
-    deleteDishes(id: number): void {
-      this.adminService.removeDishes(id).subscribe(
-        result => {
-          this._router.navigate(["/menu/" + this.RestaurantId]);
-        },
-        err => {
-          console.log(err);
-        }
-      )
-    }
+  }
 
+  forCart(RestaurantId: number): void {
+    this._router.navigate(["/cart/" + RestaurantId], { state: { food: this.selectedDishes, } })
+  }
+  addDishes(): void {
+    this._router.navigate(["/add-dishes/" + this.RestaurantId]);
+  }
+  deleteDishes(id: number): void {
+    this.adminService.removeDishes(id).subscribe(
+      result => {
+        this._router.navigate(["/menu/" + this.RestaurantId]);
+      },
+      err => {
+        console.log(err);
+      }
+    )
+  }
+  onChange(x: number) {
+    const y = this.dishes.findIndex(k => k.ID == x);
+    const dish = this.dishes.find(k => k.ID == x);
+    this.totals[y] = dish.Costs * dish.Quantity;
+  }
   ngOnInit() {
-    
+
     this.RestaurantService.getDishes(this.RestaurantId).subscribe(
       (result) => {
         this.dishes = result;
+        this.dishes.forEach(element => {
+          this.totals.push(element.Costs);
+          element.Quantity = 0;
+        });
         console.log(result);
       },
-      err=> {
+      err => {
         console.log(err);
       }
     );
 
   }
 
-  onCheck(check:boolean, ID: number) {
-    if(check === true) {
+  onCheck(check: boolean, ID: number) {
+    if (check === true) {
       this.selectedDishes.push(this.dishes.find(k => k.ID == ID));
     } else {
-      this.selectedDishes = this.selectedDishes.filter(k => k.ID !=ID);
+      this.selectedDishes = this.selectedDishes.filter(k => k.ID != ID);
     }
     console.log(this.selectedDishes);
   }

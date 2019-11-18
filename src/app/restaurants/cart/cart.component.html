@@ -16,14 +16,17 @@
         <tbody>
             <tr *ngFor="let items of selected">
                 <td>{{items.DishesName}}</td>
-                <td>500</td>
-                <td>1</td>
+                <td>{{items.Costs * items.Quantity}}</td>
+                <td>{{items.Quantity}}</td>
                 <td>
                     <button>Delete</button>
                 </td>
             </tr>
         </tbody> 
-    </table>     
+    </table>  
+    <div>
+        <p>Total: </p>
+    </div>
 </div>
 
 <div class="container">

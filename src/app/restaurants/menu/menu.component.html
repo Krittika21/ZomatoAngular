@@ -14,18 +14,25 @@
           <thead>
             <tr>
               <th>Dishes</th>
+              <th>Quantity</th>
               <th>Price</th>
+              <th>Total</th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let dish of dishes">
+            <tr *ngFor="let dish of dishes, let i = index">
               <td>
                 <div>
                     <input #myBox type="checkbox" name="check" id="check" (change)="onCheck(myBox.checked, dish.ID)">
                     <label  for="check">{{dish.DishesName}}</label>
                 </div> 
               </td>
+              <td>
+                <input id="quantity" type="number" name="quantity" [(ngModel)] = "dish.Quantity" (change)="onChange(dish.ID)"> 
+              </td>
+
               <td>{{dish.Costs}}</td>
+              <td>{{totals[i]}}</td>
               <td>
                   <button type="button" class="btn btn-danger" (click)="deleteDishes(dish.ID)">X</button>
               </td>

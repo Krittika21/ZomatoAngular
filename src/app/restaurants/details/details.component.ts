@@ -111,6 +111,6 @@ export class DetailsComponent implements OnInit {
           console.log(this.currentUser.role);
           this.isAdmin = true;
         }
-      } 
+      }
   }
 }
