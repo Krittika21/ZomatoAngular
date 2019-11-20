@@ -15,11 +15,11 @@
         </thead>
         <tbody>
             <tr *ngFor="let items of selected">
-                <td>{{items.DishesName}}</td>
-                <td>{{items.Costs * items.Quantity}}</td>
-                <td>{{items.Quantity}}</td>
+                <td>{{items.Dishes.DishesName}}</td>
+                <td>{{items.Dishes.Costs * items.ItemsCount}}</td>
+                <td>{{items.ItemsCount}}</td>
                 <td>
-                    <button>Delete</button>
+                    <button (click)="updateCart(items.ID)">Delete</button>
                 </td>
             </tr>
         </tbody> 
@@ -32,11 +32,15 @@
 <div class="container">
   <div>
       <h3>Personal Details</h3>
-      <p>User Name</p>
+      <p>{{user.fullName}}</p>
       <p>Contact / Registered Number</p>
+      <p>{{user.phoneNumber}}</p>
       <p>Address for Delivery</p>
+      <input type="text"/>
   </div>
+  <br>
   <div>
-      <button>Place Order</button>
+      <button (click)="placeOrder()">Place Order</button>
+      <p *ngIf="orderPlaced">Thank you for using Comida! Your Order has been placed.</p>
   </div>
 </div>

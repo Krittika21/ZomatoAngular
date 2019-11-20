@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
-import { AddRestaurantComponent } from '../../admin/add-restaurant/add-restaurant.component';
-import { DetailsComponent } from '../../restaurants/details/details.component';
 import { HttpClient } from '@angular/common/http';
 import { AllDetails } from '../models/AllDetails.model';
-import { AllDishes } from '../models/AllDishes.model';
 import { Observable } from 'rxjs';
+import { DishesOrdered } from '../models/dishes-ordered.model';
 
 @Injectable({
   providedIn: 'root'
@@ -33,7 +31,7 @@ export class AdminService {
      return this._http.put(this.URL + '/Restaurant/editrestaurant/' + id , body);
    }
    //post
-   postDishes(id : number , body: AllDishes)
+   postDishes(id : number , body: DishesOrdered)
    {
      return this._http.post(this.URL + '/Restaurant/newdish/' + id , body);
    }

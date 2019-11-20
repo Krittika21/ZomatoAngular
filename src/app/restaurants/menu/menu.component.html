@@ -28,12 +28,12 @@
                 </div> 
               </td>
               <td>
-                <input id="quantity" type="number" name="quantity" [(ngModel)] = "dish.Quantity" (change)="onChange(dish.ID)"> 
+                <input id="quantity" type="number" name="Count" [(ngModel)] = "ItemsCount[i]" (change)="onChange(dish.ID,ItemsCount[i])"> 
               </td>
 
               <td>{{dish.Costs}}</td>
               <td>{{totals[i]}}</td>
-              <td>
+              <td *ngIf="isAdmin === true">
                   <button type="button" class="btn btn-danger" (click)="deleteDishes(dish.ID)">X</button>
               </td>
             </tr>
@@ -44,4 +44,9 @@
 
 <div>
     <button (click)= "forCart(RestaurantId)">View Cart</button>
+    <div *ngIf="this.addItem === false" class="alert alert-info" role="alert">
+      Please select the item and add the quantity of it along. 
+      <br>
+      Thank you!
+    </div>
 </div>

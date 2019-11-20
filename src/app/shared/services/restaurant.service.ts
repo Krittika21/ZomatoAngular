@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { AllDishes } from '../models/AllDishes.model';
 import { AllRestaurants } from '../models/AllRestaurants.model';
 import { AllDetails } from '../models/AllDetails.model';
 import { Review } from '../models/review.model';
 import { Comments } from '../models/comments.model';
+import { Cart } from '../models/cart.model';
+import { DishesOrdered } from '../models/dishes-ordered.model';
+import { Dishes } from '../models/dishes.model';
 
 @Injectable({
   providedIn: 'root'
@@ -34,9 +36,9 @@ export class RestaurantService {
     return this._http.get<AllDetails>(this.URL + '/Restaurant/restaurant/'+ id);
   }
   
-  getDishes(id: number): Observable<AllDishes[]>
+  getDishes(id: number): Observable<Dishes[]>
   {
-    return this._http.get<AllDishes[]>(this.URL + '/Restaurant/restaurant/dishes/' + id);
+    return this._http.get<Dishes[]>(this.URL + '/Restaurant/restaurant/dishes/' + id);
   }
 
   removeRestaurant(RestaurantId: number):Observable<AllRestaurants>
@@ -58,4 +60,19 @@ export class RestaurantService {
   {
     return this._http.post(this.URL + '/Restaurant/comment/' + RestaurantId, body);
   }
+
+  postOrder(body: Cart)
+  {
+    return this._http.post(this.URL + '/Restaurant/orderdetails', body)
+  }
+
+  removeDishes(id : number)
+  {
+    return this._http.delete(this.URL + '/Restaurant/menu/dishes/' + id);
+  }
+
+  // editCart(orderId : number, body: Cart)
+  // {
+  //   return this._http.put(this.URL + '/Restaurant/restaurant/' + orderId, body)
+  // }
 }

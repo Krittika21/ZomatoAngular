@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AllDishes } from 'src/app/shared/models/AllDishes.model';
 import { AdminService } from 'src/app/shared/services/admin.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AllRestaurants } from 'src/app/shared/models/AllRestaurants.model';
+import { DishesOrdered } from 'src/app/shared/models/dishes-ordered.model';
 
 @Component({
   selector: 'app-add-dishes',
@@ -11,11 +11,11 @@ import { AllRestaurants } from 'src/app/shared/models/AllRestaurants.model';
 })
 export class AddDishesComponent implements OnInit {
   restaurant: AllRestaurants;
-  dish : AllDishes;
+  dish : DishesOrdered;
   RestaurantId: number;
 
   constructor(private adminService: AdminService, private _router: Router, private route: ActivatedRoute) { 
-    this.dish = new AllDishes();
+    this.dish = new DishesOrdered();
     this.RestaurantId = +this.route.snapshot.paramMap.get('id');
   }
 
