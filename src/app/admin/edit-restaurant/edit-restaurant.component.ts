@@ -11,14 +11,11 @@ import { AdminService } from 'src/app/shared/services/admin.service';
 })
 export class EditRestaurantComponent implements OnInit {
   RestaurantId: number;
-  restaurants: AllDetails[];
   restaurant: AllDetails;
   constructor(private adminService: AdminService, 
     private _router : Router, private route: ActivatedRoute) { 
-    this.restaurants = this.route.snapshot.data.resolvedData;
+    this.restaurant = this.route.snapshot.data.resolvedData;
     this.RestaurantId = +this.route.snapshot.paramMap.get('id');
-    this.restaurant = this.restaurants.find(k => k.ID === this.RestaurantId);
-    console.log(JSON.stringify(this.restaurant));
   }
 
   ngOnInit() {

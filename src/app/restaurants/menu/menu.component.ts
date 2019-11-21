@@ -70,7 +70,9 @@ export class MenuComponent implements OnInit {
   deleteDishes(id: number): void {
     this.adminService.removeDishes(id).subscribe(
       result => {
-        this._router.navigate(["/menu/" + this.RestaurantId]);
+        this._router.navigateByUrl('/', { skipLocationChange:true}).then(() => {
+          this._router.navigate(['/menu/', this.RestaurantId]);
+        })
       },
       err => {
         console.log(err);
