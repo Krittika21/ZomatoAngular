@@ -8,6 +8,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AdminModule } from './admin/admin.module';
 import { AccountModule } from './account/account.module';
 import { Authorization } from './shared/Interceptor/authorization.interceptor';
+import { ToastModule } from 'primeng/toast';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { MessageService } from 'primeng/api';
 
 @NgModule({
   declarations: [ AppComponent],
@@ -18,10 +21,12 @@ import { Authorization } from './shared/Interceptor/authorization.interceptor';
     RestaurantsModule,
     AdminModule,
     AccountModule,
-    AppRoutingModule  
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    ToastModule 
     
   ],
-  providers: [
+  providers: [MessageService,
     {
       provide: HTTP_INTERCEPTORS, useClass: Authorization, multi:true
     }
