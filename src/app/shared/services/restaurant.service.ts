@@ -13,7 +13,7 @@ import { Dishes } from '../models/dishes.model';
   providedIn: 'root'
 })
 export class RestaurantService {
-  URL: string = "https://localhost:44335/api";
+  URL: string = "https://localhost:44349/api";
   RestaurantId: number;
   constructor( private _http: HttpClient) { }
   setRestaurantId(id: number)

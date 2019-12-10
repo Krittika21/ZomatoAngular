@@ -8,7 +8,7 @@ import { DishesOrdered } from '../models/dishes-ordered.model';
   providedIn: 'root'
 })
 export class AdminService {
-  URL: string = "https://localhost:44335/api";
+  URL: string = "https://localhost:44349/api";
   RestaurantId: number;
   constructor(private _http: HttpClient) { }
   setRestaurantId(id: number)

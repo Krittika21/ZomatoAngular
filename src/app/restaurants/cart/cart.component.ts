@@ -4,6 +4,7 @@ import { RestaurantService } from 'src/app/shared/services/restaurant.service';
 import { Cart } from 'src/app/shared/models/cart.model';
 import { DishesOrdered } from 'src/app/shared/models/dishes-ordered.model';
 import { User } from 'src/app/shared/models/user.model';
+import { NotifyAdminService } from 'src/app/shared/services/notify-admin.service';
 
 @Component({
   selector: 'app-cart',
@@ -16,14 +17,18 @@ export class CartComponent implements OnInit {
   public orderPlaced = false;
   RestaurantId: number;
   user : User;
-
-  constructor( private RestaurantService : RestaurantService, private _router : Router, private route: ActivatedRoute) 
+  total: number;
+  constructor( private RestaurantService : RestaurantService, private _router : Router, private route: ActivatedRoute, private _signalr: NotifyAdminService) 
   { 
     this.selected = this._router.getCurrentNavigation().extras.state.food;
     this.RestaurantId = +this.route.snapshot.paramMap.get('id');
     this.user = JSON.parse(localStorage.getItem('currentUser'));
     this.order = new Cart();
+    this.total = 0;
     console.log(this.selected);
+    this.selected.forEach(element => {
+      this.total += element.Dishes.Costs * element.ItemsCount;      
+    });
   }
 
   placeOrder()
@@ -41,7 +46,9 @@ export class CartComponent implements OnInit {
         setTimeout(() => {
           this.orderPlaced = true
           }, 3000)
-        console.log(result);
+          this.user = JSON.parse(localStorage.getItem('currentUser'));
+          this._signalr.SendNotification('success', this.user.fullName + ' ' + 'placed an order!');
+          console.log(result);
       },
       err => {
         console.log(err);
@@ -51,17 +58,10 @@ export class CartComponent implements OnInit {
   updateCart(orderId :number)
   {
     this.selected = this.selected.filter(k => k.ID !== orderId);
-    // this.RestaurantService.editCart(orderId, this.order).subscribe(
-    //   result => {
-    //     console.log(result);
-    //   },
-    //   err => {
-    //     console.log(err);
-    //   }
-    // )
   }
 
   ngOnInit() {
+
   }
 
 }

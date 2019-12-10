@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 })
 export class UserService extends BaseService{
 
-  URL: string = "https://localhost:44335/api";
+  URL: string = "https://localhost:44349/api";
   //baseUrl: string = 'api';
 
   // Observable navItem source

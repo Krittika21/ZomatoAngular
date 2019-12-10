@@ -5,6 +5,7 @@ import { AllDetails } from 'src/app/shared/models/AllDetails.model';
 import { User } from 'src/app/shared/models/user.model';
 import { Review } from 'src/app/shared/models/review.model';
 import { Comments } from 'src/app/shared/models/comments.model';
+import { NotifyAdminService } from 'src/app/shared/services/notify-admin.service';
 
 @Component({
   selector: 'app-details',
@@ -21,7 +22,7 @@ export class DetailsComponent implements OnInit {
   addText : Comments;
 
   constructor(private RestaurantService: RestaurantService, 
-    private _router : Router, private route: ActivatedRoute, private changeDetector: ChangeDetectorRef) { 
+    private _router : Router, private route: ActivatedRoute, private changeDetector: ChangeDetectorRef, private _signalr: NotifyAdminService) { 
       this.RestaurantId = +this.route.snapshot.paramMap.get('id');
       this.addText = new Comments();
          

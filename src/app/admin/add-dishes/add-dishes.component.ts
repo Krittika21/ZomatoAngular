@@ -24,11 +24,9 @@ export class AddDishesComponent implements OnInit {
   }
   onSubmit()
   {
-    debugger
     this.adminService.postDishes(this.RestaurantId, this.dish).subscribe(
       result => {
         console.log(result);
-        debugger;
         this._router.navigate(["/menu/" + this.RestaurantId])
       },
       err => {
