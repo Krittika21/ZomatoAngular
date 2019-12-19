@@ -39,7 +39,7 @@ export class NotifyAdminService {
       return console.error(err.toString());
     });
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    if (this.currentUser.role[0] === "admin") {
+    if (this.currentUser && this.currentUser.role[0] === "admin") {
       this.isAdmin = true;
     }
 

@@ -77,6 +77,7 @@ export class DetailsComponent implements OnInit {
       this.addText.ReviewID = ReviewId;
       this.addText.UserID = this.currentUser.id;
       this.addText.FullName = this.currentUser.fullName;
+      console.log(ReviewId);
       this.RestaurantService.postComments(this.addText, this.RestaurantId).subscribe(
         result => {
           console.log(result);

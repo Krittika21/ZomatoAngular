@@ -28,8 +28,8 @@ export class AddRestaurantComponent implements OnInit {
   {
     this.restaurant.City = new AllCity();
     this.restaurant.Country = new AllCountry();
-    this.restaurant.City.Name = this.cityName;
-    this.restaurant.Country.Name = this.countryName;
+    this.restaurant.City.CityName = this.cityName;
+    this.restaurant.Country.CountryName = this.countryName;
     console.log(this.restaurant);
     this.adminService.postRestaurant(this.restaurant).subscribe(
       result => {
