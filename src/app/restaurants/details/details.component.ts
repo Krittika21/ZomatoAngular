@@ -6,6 +6,7 @@ import { User } from 'src/app/shared/models/user.model';
 import { Review } from 'src/app/shared/models/review.model';
 import { Comments } from 'src/app/shared/models/comments.model';
 import { NotifyAdminService } from 'src/app/shared/services/notify-admin.service';
+import { Footer } from 'primeng/api/shared';
 
 @Component({
   selector: 'app-details',
@@ -63,7 +64,7 @@ export class DetailsComponent implements OnInit {
       review.restaurantID = this.RestaurantId;
       this.RestaurantService.postLikes(review).subscribe(
         result => {
-          console.log(result);
+          this.ngOnInit();
         },
         err =>{
           console.log(err);
